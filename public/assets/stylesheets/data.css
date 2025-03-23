@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Nanum Gothic';
+    src: local('☺'),url(font-path('NanumGothic-Regular.eot?#iefix')) format('embedded-opentype'),url(font-path('NanumGothic-Regular.woff')) format('woff');
+}
+
+.input-group-lg > .input-group-btn > select.btn:not([size]):not([multiple]), .input-group-lg > select.form-control:not([size]):not([multiple]), .input-group-lg > select.input-group-addon:not([size]):not([multiple]), select.form-control-lg:not([size]):not([multiple]) {
+  height:2.3em;
+}
+
+/* default */
+html,body {margin:0;padding:0;height: 100%;background:#eee}
+body { font-family: "Nanum Gothic","나눔고딕","Malgun Gothic","맑은 고딕","굴림",gulim,"돋움",Dotum,Arial,Helvetica, sans-serif;color:#333}
+label {vertical-align:middle;cursor:pointer}
+a img {border:none}
+input {vertical-align:middle}
+fieldset {border:none}
+legend {display:none}
+a{color:#666;text-decoration:none;}
+a:active {color:red}
+a:hover{color:#333;text-decoration:underline;}
+a img {border:none}
+
+header {text-align:center;padding:20px}
