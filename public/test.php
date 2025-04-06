@@ -43,3 +43,8 @@ INSERT INTO Log_Device_Normal(LogDate,LogTime,LogType,LogStatus,LogPersonID) VAL
 
 INSERT INTO user_fcs(user_id,fc_id,created_at,updated_at) SELECT u.id,1439,now(),now() FROM users as u LEFT JOIN user_fcs as uf ON u.id=uf.user_id WHERE u.branch_id=10 AND  uf.user_id is null 
 SELECT a.id FROM (SELECT u.id FROM users as u INNER JOIN orders as o ON o.user_id=u.id INNER JOIN enrolls as e ON e.order_id=o.id WHERE u.branch_id=10 AND e.end_date<=curdate() GROUP BY u.id) as a
+
+
+
+
+DELETE FROM humake_development.messages where enable=0

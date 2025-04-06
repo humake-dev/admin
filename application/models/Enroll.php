@@ -393,10 +393,15 @@ if(empty($this->center_id)) {
         }
 
         if (empty($trainer_id)) {
-            $this->pdo->select('e.*');
+            $this->pdo->select('e.*,et.trainer_id');
         } else {
-            $this->pdo->select('e.*,(CASE WHEN et.trainer_id = ' . $trainer_id . ' THEN 0 ELSE 1 END) as t_order', false);
+            $this->pdo->select("
+            e.*,
+            et.trainer_id,
+            (CASE WHEN et.trainer_id = {$trainer_id} THEN 0 ELSE 1 END) AS t_order
+        ", false);
         }
+
         $this->pdo->join('orders as o', 'e.order_id = o.id');
         $this->pdo->join('courses as c', 'e.course_id = c.id');
         $this->pdo->join('order_ends as oe', 'oe.order_id = o.id', 'left');
@@ -407,12 +412,11 @@ if(empty($this->center_id)) {
         if (empty($trainer_id)) {
             $this->pdo->order_by('e.have_datetime asc,e.id asc');
         } else {
-            $this->pdo->order_by('t_order asc,e.have_datetime asc,e.id asc');
+            $this->pdo->order_by('t_order asc,e.have_datetime asc,e.id asc' );
         }
 
         $query = $this->pdo->get($this->table . ' as e');
         $result = $query->row_array();
-
         return $result;
     }
 

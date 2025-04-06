@@ -554,9 +554,9 @@ class Reservations extends SL_Controller
         $rm_data['user_id'] = $data['user_id'];
         
         if ($this->session->userdata('role_id') < 4) {
-            $content = $this->Enroll->get_relation_enroll($data['course_id'], $rm_data['user_id']);
-        } else {
             $content = $this->Enroll->get_relation_enroll($data['course_id'], $rm_data['user_id'], $data['manager_id']);
+        } else {
+            $content = $this->Enroll->get_relation_enroll($data['course_id'], $rm_data['user_id']);
         }
 
         $rm_data['enroll_id'] = $content['id'];
