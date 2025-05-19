@@ -1,23 +1,16 @@
 <?php
 
-/*  날짜 추가 스크립트 */
+/*  기준일 회원권 추가 스크립트 */
 
 try {
     $log_file = basename(__FILE__, '.php').'.log';
-    include __DIR__.DIRECTORY_SEPARATOR.'common_head.php';
+    include __DIR__.DIRECTORY_SEPARATOR.'common_head.php';    
 
-    /* $branch_id=4;
-    $course_id= 1446;
-    $reference_date='2022-08-09';
-    $plus_date=3;
-    $content='에어컨고장 기간보상 3일 증정'; */
-    
-
-    $branch_id=12;
-    $course_id= 1489;
-    $reference_date='2023-01-15';
-    $plus_date=2;
-    $content='건물 정전 기간보상 2일 증정';
+    $branch_id=10;
+    $course_id= 1474;
+    $reference_date='2025-06-01';
+    $plus_date=14;
+    $content='인테리어 리모델링 및 샤워장 공사로 인한 기간추가';
     
 
     $stmt_count = $pdo->prepare('SELECT COUNT(*) AS count FROM users AS u WHERE u.enable=1 AND branch_id=:branch_id');

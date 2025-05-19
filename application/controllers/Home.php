@@ -151,9 +151,9 @@ class Home extends SL_Controller
     public function body_indexes($id)
     {
         if ($content = $this->common_index($id)) {
-            $this->load->model('BodyIndex');
-            $this->BodyIndex->user_id = $content['id'];
-            $this->return_data['data']['list'] = $this->BodyIndex->get_index(10, 0);
+            $this->load->model('UserWeight');
+            $this->UserWeight->user_id = $content['id'];
+            $this->return_data['data']['list'] = $this->UserWeight->get_index(10, 0);
 
             $this->load->model('UserHeight');
             $this->UserHeight->user_id = $content['id'];

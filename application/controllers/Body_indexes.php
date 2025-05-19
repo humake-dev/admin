@@ -3,9 +3,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 require_once 'SL_photo.php';
 
-class Body_indexes extends SL_photo
+class Body_indexes extends SL_Controller
 {
-    protected $model = 'BodyIndex';
+    protected $model = 'UserWeight';
 
     protected function set_add_form_data()
     {
