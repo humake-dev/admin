@@ -325,12 +325,12 @@ class User_transfers extends SL_Controller
             $this->UserHeight->insert($user_h_content);
         }
 
-        $this->load->model('BodyIndex');
-        $user_bi_content = $this->BodyIndex->get_content_by_parent_id($data['user_id']);
+        $this->load->model('UserWeight');
+        $user_bi_content = $this->UserWeight->get_content_by_parent_id($data['user_id']);
 
         if ($user_bi_content) {
             $user_bi_content['user_id'] = $new_user_id;
-            $this->BodyIndex->insert($user_bi_content);
+            $this->UserWeight->insert($user_bi_content);
         }
 
         $this->load->model('UserContent');
