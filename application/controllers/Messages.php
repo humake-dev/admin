@@ -527,7 +527,9 @@ class Messages extends SL_photo
         switch ($data['type']) {
             case 'push':
                 if (empty($data['send_all'])) {
-                    $push_users = $this->{$this->model}->get_push_user($data['user'],$this->input->post('not_user'));
+                    if (!empty($data['user'])) {
+                        $push_users = $this->{$this->model}->get_push_user($data['user'],$this->input->post('not_user'));
+                    }
                 } else {
                     $push_users = $this->{$this->model}->get_push_user();
                 }
