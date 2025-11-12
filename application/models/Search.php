@@ -211,7 +211,7 @@ class Search extends SL_Model
             }
 
             if (!empty($product_id)) {
-                $product_id_exists = true;
+                // $product_id_exists = true;
                 if (is_array($product_id)) {
                     if (count($product_id)) {
                         $this->pdo->where_in('op.product_id', $product_id);
@@ -236,13 +236,23 @@ class Search extends SL_Model
 
         if (!empty($this->search['search_field'])) {
             if ($this->search['search_field'] == 'birthday') {
-                $birthday_obj = new DateTime($this->search['birthday']);
-                $birthday=$birthday_obj->format('2000-m-d');
-                $this->pdo->where('DATE_FORMAT(u.birthday,"2000-%m-%d")="'.$birthday.'"');
-                $this->pdo->where('c.lesson_type=1');
+                $start_birthday_obj = new DateTime($this->search['start_birthday']);
+                $end_birthday_obj = new DateTime($this->search['end_birthday']);
 
+                
+                $start_birthday_year=$start_birthday_obj->format('Y');
+                $end_birthday_year=$end_birthday_obj->format('Y');
+
+                $start_birthday=$start_birthday_obj->format('2000-m-d');
+                $end_birthday=$end_birthday_obj->format('2000-m-d');                   
+
+                if($start_birthday_year==$end_birthday_year) {                                 
+                    $this->pdo->where('DATE_FORMAT(u.birthday,"2000-%m-%d") BETWEEN "'.$start_birthday.'" AND "'.$end_birthday.'"');
+                } else {
+                    $this->pdo->where('((DATE_FORMAT(u.birthday,"2000-%m-%d") BETWEEN "'.$start_birthday.'" AND "2000-12-31") OR (DATE_FORMAT(u.birthday,"2000-%m-%d") BETWEEN "2000-01-01" AND "'.$end_birthday.'"))');
+                }
+                
                 $search_birthday=true;
-                $this->reference_date=$birthday_obj->format('Y-m-d');
             } else {
                 if (!empty($this->search['search_field'])) {
                     switch($this->search['search_field']) {

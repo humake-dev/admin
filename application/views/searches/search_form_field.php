@@ -23,13 +23,26 @@
         <div class="form-row">
             <div class="col-6">
             <label for="start_date"><?php echo _('Birthday'); ?></label>
-            <?php $value_birthday = set_value('birthday', $search_data['date']);?>
+            <?php 
+                $value_start_birthday = set_value('start_birthday');
+                $value_end_birthday = set_value('end_birthday');            
+            ?>
             <div class="input-group-prepend date">
             <?php 
                 echo form_input(array(
-                'name' => 'birthday',
+                'name' => 'start_birthday',
                 'id' => 's_birthday',
-                'value' => $value_birthday,
+                'value' => $value_start_birthday,
+                'class' => 'form-control birthday-datepicker',
+                'style'=>'width:150px'
+                )); 
+            ?>
+            <span> ~ </span>
+             <?php 
+                echo form_input(array(
+                'name' => 'end_birthday',
+                'id' => 'e_birthday',
+                'value' => $value_end_birthday,
                 'class' => 'form-control birthday-datepicker',
                 'style'=>'width:150px'
                 )); 

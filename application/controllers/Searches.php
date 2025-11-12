@@ -211,7 +211,8 @@ class Searches extends SL_Controller
         $this->form_validation->set_rules('search_status', ('Search Status'), 'in_list[all,status1,status2,status3,status4,status5,status6,status7,status8,status9,status10,status11,status12,status13]');
         $this->form_validation->set_rules('search_field', _('Search Field'), 'in_list[name,card_no,phone,birthday,visit_route,company]');
         if ($this->input->get('search_field') == 'birthday') {
-            $this->form_validation->set_rules('birthday', _('Birthday'), 'callback_valid_date');
+            $this->form_validation->set_rules('start_birthday', _('Birthday'), 'callback_valid_date');
+            $this->form_validation->set_rules('end_birthday', _('Birthday'), 'callback_valid_date|callback_valid_date_after[' . $this->input->get('start_birthday') . ']');
         } else {
             $this->form_validation->set_rules('search_word', _('Search Word'), 'min_length[1]|trim|max_length[20]');
         }
@@ -232,7 +233,7 @@ class Searches extends SL_Controller
             $beforeObj = new DateTime($before_date, $this->timezone);
             $afterObj = new DateTime($after_date, $this->timezone);
             
-            $beforeObj->modify('+1 Years');
+            $beforeObj->modify('+6 Months');
             if ($beforeObj<$afterObj) {
                 return false;
             }
