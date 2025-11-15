@@ -37,11 +37,9 @@ $(function () {
 
   $('.birthday-datepicker').datepicker( { 
     language: "ko",
-    changeYear: false, 
+    changeYear: true, 
     viewMode: "months", 
-    maxViewMode: "months"    
-  }).focus(function () {
-      $(".ui-datepicker-year").hide();
+    maxViewMode: "years"
   });
 
   $('select[name="user_type"]').change(function(){
@@ -106,8 +104,7 @@ $(function () {
     if($(this).val()=='birthday') {
       $("#field_period_form").show();
       $(this).closest('form').find('.input-group:first').hide().find('input[type="search"]').val('');
-      $('#a_start_date').data('datepicker').setStartDate('-1y').setEndDate('+1y');
-      $('#a_end_date').data('datepicker').setStartDate('-1y').setEndDate('+1y');       
+     
       $("#birthday_search").show();
     } else {
       $("#field_period_form").hide();
@@ -205,5 +202,47 @@ $(function () {
     }
 
     $("#s_user_type").effect('highlight');
-  });    
+  });
+
+var currentYear = new Date().getFullYear();
+var startYear = currentYear - 100;
+
+$('#yearpicker').datepicker({
+    format: "yyyy",
+    viewMode: "years",
+    minViewMode: "years",
+    language: "ko",
+    autoclose: true,
+    startDate: new Date(startYear, 0, 1),
+    endDate: new Date(currentYear, 0, 1)
+});
+
+
+    $('#schMonth').monthpicker({
+				monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+				dateFormat: 'yy-mm',
+			});
+
+
+  $('input[name="birthday_search_type"]').change(function(){
+    switch($(this).val()) {
+      case 'birthday_month':
+        $('#birthday_custom_serach_input').hide();
+        $('#birthday_month_serach_input').show();   
+        $('#birthday_year_serach_input').hide();        
+        break;
+      case 'custom_period_search':
+        $('#birthday_custom_serach_input').show();
+        $('#birthday_month_serach_input').hide();   
+        $('#birthday_year_serach_input').hide();        
+        break;
+      default : 
+        $('#birthday_custom_serach_input').hide();
+        $('#birthday_month_serach_input').hide();   
+        $('#birthday_year_serach_input').show();
+        break;
+    }
+  });
+
+  $('input[name="birthday_search_type"]:checked').trigger('change');
 });

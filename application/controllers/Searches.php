@@ -212,35 +212,12 @@ class Searches extends SL_Controller
         $this->form_validation->set_rules('search_field', _('Search Field'), 'in_list[name,card_no,phone,birthday,visit_route,company]');
         if ($this->input->get('search_field') == 'birthday') {
             $this->form_validation->set_rules('start_birthday', _('Birthday'), 'callback_valid_date');
-            $this->form_validation->set_rules('end_birthday', _('Birthday'), 'callback_valid_date|callback_valid_date_after[' . $this->input->get('start_birthday') . ']');
+            $this->form_validation->set_rules('end_birthday', _('Birthday'), 'callback_valid_date');
         } else {
             $this->form_validation->set_rules('search_word', _('Search Word'), 'min_length[1]|trim|max_length[20]');
         }
         $this->set_message();
     }
-
-    protected function get_error_messages()
-    {
-        $message = parent::get_error_messages();
-        $message['valid_birthday_search_date'] = _('The birthday search end date must smaller than more birthday search start date +1 year.');
-        
-        return $message;
-    }      
-
-    public function valid_birthday_search_date($after_date=null, $before_date=null)
-    {
-        if(!empty($after_date) and !empty($before_date)) {
-            $beforeObj = new DateTime($before_date, $this->timezone);
-            $afterObj = new DateTime($after_date, $this->timezone);
-            
-            $beforeObj->modify('+6 Months');
-            if ($beforeObj<$afterObj) {
-                return false;
-            }
-        }
-
-        return true;
-    }    
 
     public function index_oc($type = null)
     {

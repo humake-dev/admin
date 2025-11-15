@@ -384,9 +384,10 @@ class SL_Controller extends CI_Controller
             $this->layout->add_js('jquery.pagination.js');
             $this->layout->add_js('bootstrap-datepicker.min.js');
             $this->layout->add_js('moment.js');
+            $this->layout->add_js('jquery.ui.monthpicker.js'); 
             $this->layout->add_js('common.js?version=' . $this->assets_version);
         } else {
-            // uglifyjs --output common.min.js jquery.min.js popper.min.js bootstrap.min.js jquery-ui-1.10.3.custom.min.js jquery.form.min.js jquery.fancybox.1.3.4.js jquery.pagination.js bootstrap-datepicker.min.js moment.js common.js
+            // uglifyjs --output common.min.js jquery.min.js popper.min.js bootstrap.min.js jquery-ui-1.10.3.custom.min.js jquery.form.min.js jquery.fancybox.1.3.4.js jquery.pagination.js bootstrap-datepicker.min.js moment.js jquery.ui.monthpicker.js common.js
             $this->layout->add_js('common.min.js?version=' . $this->assets_version);
         }
     }

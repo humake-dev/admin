@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: humake\n"
-"POT-Creation-Date: 2025-02-10 23:28+0900\n"
-"PO-Revision-Date: 2025-02-10 23:29+0900\n"
+"POT-Creation-Date: 2025-11-15 17:59+0900\n"
+"PO-Revision-Date: 2025-11-15 18:00+0900\n"
 "Last-Translator: \n"
 "Language-Team: sl\n"
 "Language: ko\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.8\n"
 "X-Poedit-KeywordsList: _;__\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 
 #: controllers/Account_edit_log_content.php:15
-#: views/account_edit_logs/index.php:3 views/layout/elements/header.php:294
+#: views/account_edit_logs/index.php:3 views/layout/elements/header.php:300
 msgid "Account Edit Log"
 msgstr "정산수정기록 "
 
@@ -100,8 +100,8 @@ msgstr "회원"
 #: controllers/Order_transfers.php:279 controllers/Orders.php:171
 #: controllers/Rent_sw_transfers.php:19 controllers/Rent_sws.php:280
 #: controllers/Search_ys.php:155 controllers/Searches.php:204
-#: controllers/Searches.php:282 controllers/Searches.php:342
-#: controllers/Searches.php:357 helpers/sl_helper.php:124
+#: controllers/Searches.php:260 controllers/Searches.php:320
+#: controllers/Searches.php:335 helpers/sl_helper.php:124
 #: views/account_edit_logs/list.php:28 views/account_edit_logs/memo_list.php:14
 #: views/account_edit_logs/search_form.php:27 views/admins/fc_list.php:15
 #: views/counsel_edit_logs/memo_list.php:14 views/home/account_table.php:22
@@ -187,7 +187,7 @@ msgstr "명"
 #: controllers/Account_employees.php:292 controllers/Account_employees.php:293
 #: controllers/Account_employees.php:294 controllers/Search_ys.php:230
 #: controllers/Search_ys.php:289 controllers/Search_ys.php:298
-#: controllers/Search_ys.php:304 controllers/Searches.php:418
+#: controllers/Search_ys.php:304 controllers/Searches.php:396
 #: controllers/Trainer_actives.php:202 controllers/Trainer_actives.php:268
 #: controllers/Trainer_actives.php:270 controllers/Trainer_actives.php:273
 #: controllers/Trainer_actives.php:281 controllers/Trainer_actives.php:284
@@ -285,8 +285,8 @@ msgid "Currency"
 msgstr "원"
 
 #: controllers/Account_employees.php:180 controllers/Account_employees.php:239
-#: controllers/Searches.php:285 controllers/Searches.php:345
-#: controllers/Searches.php:360 views/account_employees/list_trainer.php:15
+#: controllers/Searches.php:263 controllers/Searches.php:323
+#: controllers/Searches.php:338 views/account_employees/list_trainer.php:15
 #: views/home/summary_pt.php:22 views/searches/list.php:119
 msgid "Total Quantity"
 msgstr "총 횟수"
@@ -329,8 +329,8 @@ msgstr "남은수량"
 msgid "Count Time"
 msgstr "회"
 
-#: controllers/Account_employees.php:236 controllers/Searches.php:284
-#: controllers/Searches.php:344 controllers/Searches.php:359
+#: controllers/Account_employees.php:236 controllers/Searches.php:262
+#: controllers/Searches.php:322 controllers/Searches.php:337
 #: controllers/Temp_users.php:315 controllers/Trainer_actives.php:224
 #: controllers/Users.php:147 views/account_employees/view.php:51
 #: views/entrances/content.php:132 views/home/content.php:119
@@ -384,8 +384,8 @@ msgstr "가격"
 #: controllers/Account_employees.php:243 controllers/Accounts.php:231
 #: controllers/Enrolls.php:699 controllers/Rents.php:692
 #: controllers/Search_ys.php:187 controllers/Search_ys.php:202
-#: controllers/Searches.php:288 controllers/Searches.php:346
-#: controllers/Searches.php:361 controllers/Trainer_actives.php:227
+#: controllers/Searches.php:266 controllers/Searches.php:324
+#: controllers/Searches.php:339 controllers/Trainer_actives.php:227
 #: helpers/sl_helper.php:786 views/account_employees/view.php:60
 #: views/admins/fc_list.php:20 views/enroll_transfers/add.php:39
 #: views/enroll_transfers/delete.php:33 views/enrolls/index.php:184
@@ -419,8 +419,8 @@ msgstr "수업료"
 #: controllers/Order_block_excels.php:194 controllers/Order_blocks.php:206
 #: controllers/Order_transfers.php:281 controllers/Others.php:109
 #: controllers/Rents.php:684 controllers/Search_ys.php:184
-#: controllers/Search_ys.php:199 controllers/Searches.php:278
-#: controllers/Searches.php:338 controllers/Searches.php:352
+#: controllers/Search_ys.php:199 controllers/Searches.php:256
+#: controllers/Searches.php:316 controllers/Searches.php:330
 #: helpers/sl_helper.php:795 views/account_employees/search_form.php:55
 #: views/account_employees/view.php:61 views/account_products/view.php:36
 #: views/accounts/form.php:75 views/accounts/search_form.php:6
@@ -451,7 +451,7 @@ msgstr "거래일"
 #: controllers/Account_employees.php:248 controllers/Accounts.php:362
 #: controllers/Counsels.php:427 controllers/Order_extend.php:642
 #: controllers/Order_stops.php:343 controllers/Reservations.php:768
-#: controllers/Search_ys.php:212 controllers/Searches.php:368
+#: controllers/Search_ys.php:212 controllers/Searches.php:346
 #: helpers/sl_helper.php:67 views/analyses/index.php:113
 #: views/employees/attendances.php:27 views/entrances/content.php:112
 #: views/home/attendances.php:31
@@ -467,7 +467,7 @@ msgstr "년"
 #: controllers/Account_employees.php:248 controllers/Accounts.php:362
 #: controllers/Counsels.php:427 controllers/Order_extend.php:642
 #: controllers/Order_stops.php:343 controllers/Reservations.php:768
-#: controllers/Search_ys.php:212 controllers/Searches.php:368
+#: controllers/Search_ys.php:212 controllers/Searches.php:346
 #: helpers/sl_helper.php:67 views/analyses/index.php:113
 #: views/analyses/index.php:143 views/analyses/index.php:147
 #: views/analyses/index.php:151 views/analyses/index.php:280
@@ -489,7 +489,7 @@ msgstr "월"
 #: controllers/Counsels.php:427 controllers/Enrolls.php:718
 #: controllers/Order_extend.php:642 controllers/Order_stops.php:343
 #: controllers/Reservations.php:768 controllers/Search_ys.php:212
-#: controllers/Search_ys.php:275 controllers/Searches.php:368
+#: controllers/Search_ys.php:275 controllers/Searches.php:346
 #: helpers/sl_helper.php:31 helpers/sl_helper.php:67 helpers/sl_helper.php:132
 #: helpers/sl_helper.php:907 helpers/sl_helper.php:941
 #: helpers/sl_helper.php:943 helpers/sl_helper.php:963
@@ -540,7 +540,7 @@ msgstr "무제한"
 #: controllers/Account_others.php:39 controllers/Accounts.php:110
 #: controllers/Accounts.php:297 controllers/Counsel_requests.php:119
 #: controllers/Counsels.php:341 controllers/Counsels.php:362
-#: controllers/Counsels.php:419 controllers/Messages.php:733
+#: controllers/Counsels.php:419 controllers/Messages.php:743
 #: controllers/Reservations.php:174 controllers/Reservations.php:336
 #: controllers/Reservations.php:689 helpers/sl_helper.php:798
 #: views/accounts/form.php:16 views/admins/pt_detail.php:14
@@ -666,7 +666,7 @@ msgstr "지출"
 #: controllers/Counsel_requests.php:132 controllers/Course_categories.php:46
 #: controllers/Error_reports.php:74 controllers/Exercise_categories.php:29
 #: controllers/Exercises.php:57 controllers/Facility_categories.php:46
-#: controllers/Message_prepares.php:25 controllers/Messages.php:734
+#: controllers/Message_prepares.php:25 controllers/Messages.php:744
 #: controllers/No_fcs.php:125 controllers/Notices.php:23
 #: controllers/Product_categories.php:38 controllers/Products.php:119
 #: controllers/Roles.php:30 controllers/User_stop_requests.php:129
@@ -703,13 +703,13 @@ msgstr "신규신청건수"
 
 #: controllers/Accounts.php:574 controllers/Enrolls.php:807
 #: controllers/Pagination_aside.php:27 controllers/Pagination_aside.php:32
-#: controllers/Reservations.php:807 controllers/SL.php:1095
+#: controllers/Reservations.php:807 controllers/SL.php:1096
 msgid "First"
 msgstr "처음"
 
 #: controllers/Accounts.php:578 controllers/Enrolls.php:811
 #: controllers/Pagination_aside.php:28 controllers/Pagination_aside.php:33
-#: controllers/Reservations.php:811 controllers/SL.php:1099
+#: controllers/Reservations.php:811 controllers/SL.php:1100
 msgid "Last"
 msgstr "마지막"
 
@@ -759,8 +759,8 @@ msgstr "기간"
 #: controllers/Rents.php:439 controllers/Reservations.php:356
 #: controllers/Search_period.php:10 controllers/Search_ys.php:158
 #: controllers/Search_ys.php:185 controllers/Search_ys.php:200
-#: controllers/Searches.php:279 controllers/Searches.php:339
-#: controllers/Searches.php:353 helpers/sl_helper.php:777
+#: controllers/Searches.php:257 controllers/Searches.php:317
+#: controllers/Searches.php:331 helpers/sl_helper.php:777
 #: views/enroll_pts/index.php:55 views/enrolls/content.php:128
 #: views/enrolls/form.php:393 views/enrolls/list.php:36
 #: views/entrances/content.php:185 views/entrances/content.php:281
@@ -780,8 +780,8 @@ msgstr "시작일"
 #: controllers/Rent_sws.php:288 controllers/Rents.php:306
 #: controllers/Rents.php:440 controllers/Search_period.php:14
 #: controllers/Search_ys.php:159 controllers/Search_ys.php:186
-#: controllers/Search_ys.php:201 controllers/Searches.php:280
-#: controllers/Searches.php:340 controllers/Searches.php:354
+#: controllers/Search_ys.php:201 controllers/Searches.php:258
+#: controllers/Searches.php:318 controllers/Searches.php:332
 #: helpers/sl_helper.php:780 views/enroll_pts/index.php:55
 #: views/enrolls/content.php:140 views/enrolls/form.php:416
 #: views/enrolls/list.php:37 views/entrances/content.php:193
@@ -800,7 +800,7 @@ msgstr "종료일"
 #: controllers/Admins.php:353 controllers/Admins.php:355
 #: controllers/Counsel_managers.php:127 controllers/Counsel_managers.php:129
 #: controllers/Order_extend.php:280 controllers/Order_extend.php:282
-#: controllers/SL.php:528 controllers/SL.php:530
+#: controllers/SL.php:529 controllers/SL.php:531
 msgid "Update Fail"
 msgstr "수정 실패"
 
@@ -855,13 +855,13 @@ msgid "Successfully Disabled Article"
 msgstr "사용중지되었습니다"
 
 #: controllers/Centers.php:106 controllers/Enrolls.php:831
-#: controllers/SL.php:410
+#: controllers/SL.php:411
 #, php-format
 msgid "The %s field must contain a unique value."
 msgstr "%s은(는) 이미존재합니다. 중복되지 않는 유일한 값이여야합니다."
 
 #: controllers/Counsel_edit_log_contents.php:15
-#: views/layout/elements/header.php:295
+#: views/layout/elements/header.php:301
 msgid "Counsel Edit Log"
 msgstr "상담수정기록 "
 
@@ -971,7 +971,7 @@ msgstr "검색항목"
 
 #: controllers/Counsel_requests.php:123 controllers/Counsels.php:345
 #: controllers/Home.php:573 controllers/Rent_sws.php:271
-#: controllers/Searches.php:216 controllers/Temp_users.php:99
+#: controllers/Searches.php:217 controllers/Temp_users.php:99
 #: controllers/User_stop_requests.php:120
 #: views/counsel_requests/search_form_field.php:13
 #: views/counsels/search_form_field.php:13
@@ -994,7 +994,7 @@ msgstr "검색어"
 #: views/counsel_responses/form.php:13 views/enroll_pts/edit.php:10
 #: views/enroll_pts/index.php:9 views/enroll_pts/index.php:129
 #: views/enroll_transfers/add.php:73 views/error_reports/index.php:28
-#: views/layout/elements/header.php:66 views/message_analyses/index.php:81
+#: views/layout/elements/header.php:72 views/message_analyses/index.php:81
 #: views/message_points/edit.php:17 views/message_points/index.php:23
 #: views/order_transfers/add.php:73 views/user_stop_requests/list.php:27
 #: views/user_stop_requests/search_form_default.php:5
@@ -1005,7 +1005,7 @@ msgstr "지점"
 #: controllers/Counsel_requests.php:133 controllers/Counsel_responses.php:53
 #: controllers/Counsels.php:366 controllers/Counsels.php:424
 #: controllers/Error_reports.php:75 controllers/Message_prepares.php:26
-#: controllers/Messages.php:735 controllers/No_fcs.php:126
+#: controllers/Messages.php:745 controllers/No_fcs.php:126
 #: controllers/Notices.php:24 controllers/Others.php:108
 #: controllers/User_stop_requests.php:130 helpers/sl_helper.php:744
 #: views/account_edit_logs/form.php:31 views/account_edit_logs/list.php:31
@@ -1051,8 +1051,8 @@ msgstr "상담회원"
 
 #: controllers/Counsels.php:361 controllers/Counsels.php:423
 #: controllers/Employees.php:607 controllers/Search_ys.php:183
-#: controllers/Search_ys.php:198 controllers/Searches.php:277
-#: controllers/Searches.php:337 controllers/Searches.php:351
+#: controllers/Search_ys.php:198 controllers/Searches.php:255
+#: controllers/Searches.php:315 controllers/Searches.php:329
 #: controllers/Temp_users.php:311 controllers/Users.php:144
 #: helpers/sl_helper.php:99 helpers/sl_helper.php:747 views/admins/edit.php:19
 #: views/admins/fc_list.php:14 views/admins/pt_list.php:20
@@ -1148,7 +1148,7 @@ msgstr "처리중"
 msgid "Process Complete"
 msgstr "처리완료"
 
-#: controllers/Counsels.php:483
+#: controllers/Counsels.php:489
 msgid "Counsel List"
 msgstr "상담목록"
 
@@ -1168,7 +1168,7 @@ msgstr "우선순위"
 #: controllers/Order_extend.php:539 controllers/Order_extend.php:541
 #: controllers/Others.php:209 controllers/Others.php:211
 #: controllers/Product_extend.php:100 controllers/Product_extend.php:102
-#: controllers/SL.php:673 controllers/SL.php:675 controllers/SL_file.php:467
+#: controllers/SL.php:674 controllers/SL.php:676 controllers/SL_file.php:469
 #: controllers/SL_photo.php:203
 msgid "Delete Fail"
 msgstr "삭제 실패"
@@ -1283,7 +1283,7 @@ msgstr "지점 %s에 카드번호 %s는 존재하지 않습니다"
 
 #: controllers/Employee_attendances.php:82 controllers/Employees.php:919
 #: controllers/Entrances.php:197 controllers/Entrances.php:226
-#: controllers/No_fcs.php:192 controllers/SL.php:405
+#: controllers/No_fcs.php:192 controllers/SL.php:406
 #: views/reservations/form.php:16 views/reservations/form.php:17
 #, php-format
 msgid "The %s field is required."
@@ -1361,8 +1361,8 @@ msgstr "아이디"
 
 #: controllers/Employees.php:608 controllers/Facilities.php:119
 #: controllers/Search_ys.php:182 controllers/Search_ys.php:197
-#: controllers/Searches.php:276 controllers/Searches.php:336
-#: controllers/Searches.php:350 controllers/Temp_users.php:312
+#: controllers/Searches.php:254 controllers/Searches.php:314
+#: controllers/Searches.php:328 controllers/Temp_users.php:312
 #: controllers/Users.php:145 views/admins/edit.php:29
 #: views/employees/content.php:71 views/employees/form.php:142
 #: views/employees/select.php:104 views/entrances/content.php:65
@@ -1376,16 +1376,16 @@ msgid "Gender"
 msgstr "성별"
 
 #: controllers/Employees.php:609 controllers/Searches.php:214
-#: controllers/Temp_users.php:319 controllers/Users.php:155
-#: views/employees/content.php:147 views/employees/form.php:191
-#: views/entrances/content.php:61 views/home/content.php:105
-#: views/layout/elements/home/profile_detail.php:40
+#: controllers/Searches.php:215 controllers/Temp_users.php:319
+#: controllers/Users.php:155 views/employees/content.php:147
+#: views/employees/form.php:191 views/entrances/content.php:61
+#: views/home/content.php:105 views/layout/elements/home/profile_detail.php:40
 #: views/layout/elements/users/select_table.php:44
 #: views/layout/elements/users/select_table_not_counsel.php:44
 #: views/message_prepares/search.php:159 views/messages/search.php:125
 #: views/search_ys/list.php:32 views/searches/list.php:72
 #: views/searches/search_form_field.php:7
-#: views/searches/search_form_field.php:25 views/temp_users/content.php:67
+#: views/searches/search_form_field.php:79 views/temp_users/content.php:67
 #: views/temp_users/form.php:124 views/user_not_selects/index.php:57
 #: views/users/form.php:157
 msgid "Birthday"
@@ -1422,7 +1422,7 @@ msgstr "%s의 형식이 알맞지 않습니다."
 
 #: controllers/Employees.php:909 controllers/Order_extend.php:447
 #: controllers/Order_extend.php:475 controllers/Others.php:121
-#: controllers/Others.php:149 controllers/SL.php:642
+#: controllers/Others.php:149 controllers/SL.php:643
 msgid "id"
 msgstr "아이디"
 
@@ -1474,11 +1474,11 @@ msgstr "PT일련번호"
 msgid "Course"
 msgstr "과목"
 
-#: controllers/Enroll_transfers.php:355
+#: controllers/Enroll_transfers.php:363
 msgid "Successfully Schedule Transfer Enroll"
 msgstr "수강양도가 예약되었습니다"
 
-#: controllers/Enroll_transfers.php:357
+#: controllers/Enroll_transfers.php:365
 msgid "Successfully Transfer Enroll"
 msgstr "수강이 양도되었습니다"
 
@@ -1530,8 +1530,8 @@ msgid "Have Datetime"
 msgstr "순번일"
 
 #: controllers/Enrolls.php:642 controllers/Facilities.php:120
-#: controllers/Searches.php:281 controllers/Searches.php:341
-#: controllers/Searches.php:355 helpers/sl_helper.php:735
+#: controllers/Searches.php:259 controllers/Searches.php:319
+#: controllers/Searches.php:333 helpers/sl_helper.php:735
 #: views/account_products/view.php:39 views/admins/pt_list.php:16
 #: views/enrolls/list.php:34 views/facilities/index.php:30
 #: views/order_edit_logs/search_form.php:14 views/orders/add.php:17
@@ -1539,8 +1539,8 @@ msgstr "순번일"
 msgid "Quantity"
 msgstr "수량"
 
-#: controllers/Enrolls.php:643 controllers/Searches.php:286
-#: controllers/Searches.php:345 controllers/Searches.php:360
+#: controllers/Enrolls.php:643 controllers/Searches.php:264
+#: controllers/Searches.php:323 controllers/Searches.php:338
 #: helpers/sl_helper.php:738 views/enroll_pts/edit.php:23
 #: views/enroll_pts/index.php:132 views/enrolls/form.php:238
 #: views/home/summary_pt.php:23 views/message_prepares/search.php:165
@@ -1692,30 +1692,30 @@ msgstr "SMS전송 포인트"
 msgid "Successfully Change Point Zero"
 msgstr "SMS포인트를 0원으로 변경하였습니다"
 
-#: controllers/Messages.php:731 views/message_analyses/current.php:110
+#: controllers/Messages.php:741 views/message_analyses/current.php:110
 #: views/messages/form.php:274 views/messages/view.php:20
 msgid "Sender"
 msgstr "발신자"
 
-#: controllers/Messages.php:732 views/messages/form.php:22
+#: controllers/Messages.php:742 views/messages/form.php:22
 msgid "Message Type"
 msgstr "전송방법"
 
-#: controllers/Messages.php:738 controllers/Messages.php:742
+#: controllers/Messages.php:748 controllers/Messages.php:752
 #: views/messages/form.php:94 views/messages/form.php:106
 msgid "Receiver"
 msgstr "받을사람"
 
-#: controllers/Messages.php:804
+#: controllers/Messages.php:814
 msgid "The sms_available_quantity must greater than 0"
 msgstr ""
 "SMS 전송 가능 포인트가 없습니다.  먼저 포인트를 충전하신 후에 이용해주세요"
 
-#: controllers/Messages.php:813
+#: controllers/Messages.php:823
 msgid "Not selected available user"
 msgstr "사용 가능한 사용자를 선택하지 않음"
 
-#: controllers/Messages.php:828
+#: controllers/Messages.php:838
 #, php-format
 msgid ""
 "Send SMS Point is %.1f(SMS type %s : %.1f * Send Counter : %d),But You Have "
@@ -1724,23 +1724,23 @@ msgstr ""
 "보내는데 필요한 포인트는 %.1f(전송종류 %s :  %.1f * 전송받는 사람 : %d)인데 "
 "현재 포인트는 %.1f입니다"
 
-#: controllers/Messages.php:835
+#: controllers/Messages.php:845
 msgid "Send SMS Fail"
 msgstr "SMS 보내기 실패"
 
-#: controllers/Messages.php:1014
+#: controllers/Messages.php:1023
 msgid "The branch must has phone number"
 msgstr "담당자번호가 등록되어있지않습니다"
 
-#: controllers/Messages.php:1015
+#: controllers/Messages.php:1024
 msgid "Invaild User Or User Empty"
 msgstr "회원이 없거나 보낼 수 없는 회원뿐입니다"
 
 #: controllers/Order_block_excels.php:160
 #: controllers/Order_block_excels.php:162 controllers/Order_blocks.php:188
 #: controllers/Order_blocks.php:190 controllers/Order_extend.php:188
-#: controllers/Order_extend.php:190 controllers/SL.php:465
-#: controllers/SL.php:467
+#: controllers/Order_extend.php:190 controllers/SL.php:466
+#: controllers/SL.php:468
 msgid "Insert Fail"
 msgstr "입력실패"
 
@@ -1753,7 +1753,7 @@ msgstr "기준일"
 
 #: controllers/Order_edit_log_contents.php:15
 #: views/counsel_edit_logs/index.php:3 views/home/memo.php:21
-#: views/layout/elements/header.php:293 views/order_edit_logs/index.php:3
+#: views/layout/elements/header.php:299 views/order_edit_logs/index.php:3
 msgid "Order Edit Log"
 msgstr "주문수정기록"
 
@@ -2061,14 +2061,14 @@ msgstr "락커대여가 취소되었습니다"
 msgid "Result"
 msgstr "결과"
 
-#: controllers/Reservations.php:248 controllers/SL.php:703
+#: controllers/Reservations.php:248 controllers/SL.php:704
 #: controllers/User_stops.php:715
 msgid "Successfully Created Article"
 msgstr "성공적으로 입력되었습니다"
 
 #: controllers/Reservations.php:355 controllers/Search_ys.php:181
-#: controllers/Search_ys.php:196 controllers/Searches.php:275
-#: controllers/Searches.php:335 controllers/Searches.php:349
+#: controllers/Search_ys.php:196 controllers/Searches.php:253
+#: controllers/Searches.php:313 controllers/Searches.php:327
 #: views/account_products/view.php:37 views/admins/fc_list.php:13
 #: views/admins/pt_list.php:19 views/body_indexes/form.php:7
 #: views/counsel_requests/search_form_field.php:7
@@ -2156,85 +2156,85 @@ msgstr "%s 수업이  취소 되었습니다."
 msgid "Main Title"
 msgstr "휴메이크 ERP"
 
-#: controllers/SL.php:406
+#: controllers/SL.php:407
 #, php-format
 msgid "The %s field must be at least %s characters in length."
 msgstr "%s은(는) 적어도 %s자 이상이여 합니다."
 
-#: controllers/SL.php:407
+#: controllers/SL.php:408
 #, php-format
 msgid "The %s field cannot exceed %s characters in length."
 msgstr "%s(은)는 많아도 %s자 보다는 적어야 합니다."
 
-#: controllers/SL.php:408 controllers/SL.php:409
+#: controllers/SL.php:409 controllers/SL.php:410
 #, php-format
 msgid "The %s field must contain only numbers."
 msgstr "%s은(는) 숫자형식이여야 합니다."
 
-#: controllers/SL.php:411
+#: controllers/SL.php:412
 #, php-format
 msgid "The %s field does not match the %s field."
 msgstr "%s(이)가 %s(와)과 일치하지 않습니다."
 
-#: controllers/SL.php:412
+#: controllers/SL.php:413
 #, php-format
 msgid "The %s field must be one of: %s."
 msgstr "%s(은)는 %s중 하나이여야 합니다"
 
-#: controllers/SL.php:413
+#: controllers/SL.php:414
 #, php-format
 msgid "The %s field must contain a number greater than %s."
 msgstr "%s(은)는 %s보다 커야됩니다."
 
-#: controllers/SL.php:414
+#: controllers/SL.php:415
 #, php-format
 msgid "The %s field must contain a number less than %s."
 msgstr "%s(은)는 %s보다 작아야됩니다."
 
-#: controllers/SL.php:415
+#: controllers/SL.php:416
 #, php-format
 msgid "The %s field must contain a valid email address."
 msgstr "%s은(는) 알맞은 이메일형식 이여야 합니다."
 
-#: controllers/SL.php:416
+#: controllers/SL.php:417
 #, php-format
 msgid "The %s field must contain a valid date."
 msgstr "%s은(는) 알맞은 날짜형식 이여야 합니다."
 
-#: controllers/SL.php:417
+#: controllers/SL.php:418
 #, php-format
 msgid "The %s field must contain a valid time."
 msgstr "%s은(는) 알맞은 시간형식 이여야 합니다."
 
-#: controllers/SL.php:418
+#: controllers/SL.php:419
 #, php-format
 msgid "The %s field must after date."
 msgstr "%s은 시작일보다 같거나 늦은날짜이여야 합니다."
 
-#: controllers/SL.php:419
+#: controllers/SL.php:420
 #, php-format
 msgid "The %s field must smaller than or equal origin enddate."
 msgstr "%s은 원종료일보다 이전이거나 같은날이여야합니다."
 
-#: controllers/SL.php:420
+#: controllers/SL.php:421
 msgid "The search end date must after search start date."
 msgstr "조회종료일자는 조회시작일자와 같거나 커야됩니다."
 
-#: controllers/SL.php:421
+#: controllers/SL.php:422
 #, php-format
 msgid "The %s field must after time."
 msgstr "%s은 시작시간보다 늦어야합니다."
 
-#: controllers/SL.php:422
+#: controllers/SL.php:423
 #, php-format
 msgid "The %s field must greater than or equal today."
 msgstr "%s은 오늘보다 이후이거나 같은날이여야합니다."
 
-#: controllers/SL.php:708
+#: controllers/SL.php:709
 msgid "Successfully Updated Article"
 msgstr "성공적으로 수정되었습니다"
 
-#: controllers/SL.php:713
+#: controllers/SL.php:714
 msgid "Successfully Deleted Article"
 msgstr "삭제되었습니다"
 
@@ -2246,7 +2246,7 @@ msgstr "부모"
 msgid "Fail To Delete Photo"
 msgstr "사진삭제가 실패하였습니다"
 
-#: controllers/Search_ys.php:219 controllers/Searches.php:375
+#: controllers/Search_ys.php:219 controllers/Searches.php:353
 #: helpers/sl_helper.php:357 models/Analysis.php:468 views/admins/edit.php:49
 #: views/employees/content.php:77 views/employees/form.php:162
 #: views/facilities/_form.php:108 views/home/content.php:11
@@ -2256,7 +2256,7 @@ msgstr "사진삭제가 실패하였습니다"
 msgid "Male"
 msgstr "남자"
 
-#: controllers/Search_ys.php:223 controllers/Searches.php:379
+#: controllers/Search_ys.php:223 controllers/Searches.php:357
 #: helpers/sl_helper.php:354 models/Analysis.php:468 views/admins/edit.php:69
 #: views/employees/content.php:79 views/employees/form.php:183
 #: views/facilities/_form.php:108 views/home/content.php:13
@@ -2276,13 +2276,7 @@ msgstr "상품분류"
 msgid "Rent Option"
 msgstr "개월"
 
-#: controllers/Searches.php:224
-msgid ""
-"The birthday search end date must smaller than more birthday search start "
-"date +1 year."
-msgstr "생일검색시 조회종료일자는 조회시작일자와 차이가 1년 이내여야 됩니다."
-
-#: controllers/Searches.php:283 controllers/Searches.php:290
+#: controllers/Searches.php:261 controllers/Searches.php:268
 #: controllers/Temp_users.php:316 controllers/Users.php:148
 #: views/courses/edit.php:331 views/enrolls/content.php:125
 #: views/entrances/content.php:124 views/home/content.php:131
@@ -2292,26 +2286,26 @@ msgstr "생일검색시 조회종료일자는 조회시작일자와 차이가 1�
 msgid "User Trainer"
 msgstr "담당강사"
 
-#: controllers/Searches.php:287 controllers/Searches.php:345
-#: controllers/Searches.php:360 views/searches/list.php:121
+#: controllers/Searches.php:265 controllers/Searches.php:323
+#: controllers/Searches.php:338 views/searches/list.php:121
 msgid "Remain Quantity"
 msgstr "잔여횟수"
 
-#: controllers/Searches.php:294 controllers/Users.php:151
+#: controllers/Searches.php:272 controllers/Users.php:151
 #: views/home/content.php:165 views/searches/list.php:106
 #: views/searches/search_form_field.php:7 views/user_additionals/view.php:5
 #: views/users/form.php:298
 msgid "Company"
 msgstr "회사"
 
-#: controllers/Searches.php:298 controllers/Users.php:150
+#: controllers/Searches.php:276 controllers/Users.php:150
 #: views/home/content.php:142 views/searches/list.php:103
 #: views/searches/search_form_field.php:7 views/user_additionals/view.php:9
 #: views/users/form.php:258
 msgid "Visit Route"
 msgstr "방문경로"
 
-#: controllers/Searches.php:356 views/searches/list.php:83
+#: controllers/Searches.php:334 views/searches/list.php:83
 msgid "Total Period"
 msgstr "총 수량"
 
@@ -3045,7 +3039,7 @@ msgstr "내용보기"
 #: views/search_ys/search_form.php:66
 #: views/searches/search_form_default.php:188
 #: views/searches/search_form_field.php:13
-#: views/searches/search_form_field.php:45 views/temp_users/aside.php:61
+#: views/searches/search_form_field.php:142 views/temp_users/aside.php:61
 #: views/temp_users/aside.php:157 views/temp_users/select_form.php:5
 #: views/temp_users/select_form.php:44 views/trainer_actives/search_form.php:23
 #: views/user_not_selects/index.php:70
@@ -3327,7 +3321,7 @@ msgstr "회원정보 수정"
 msgid "Picture"
 msgstr "사진"
 
-#: views/admins/my_profit.php:60 views/layout/elements/header.php:74
+#: views/admins/my_profit.php:60 views/layout/elements/header.php:80
 msgid "My Profit"
 msgstr "내 수익현황"
 
@@ -3763,8 +3757,8 @@ msgstr "사용"
 msgid "Add Content"
 msgstr "메모입력"
 
-#: views/courses/add.php:5 views/layout/elements/header.php:171
-#: views/layout/elements/header.php:177
+#: views/courses/add.php:5 views/layout/elements/header.php:177
+#: views/layout/elements/header.php:183
 msgid "Course Category Manage"
 msgstr "과목분류관리"
 
@@ -3951,7 +3945,7 @@ msgid "Attendance Add"
 msgstr "출석등록"
 
 #: views/employees/attendances.php:58 views/entrances/form.php:2
-#: views/home/attendances.php:66 views/layout/default.php:38
+#: views/home/attendances.php:66 views/layout/default.php:36
 #: views/layout/elements/home/nav.php:26 views/message_prepares/search.php:27
 #: views/messages/search.php:24 views/searches/search_form_default.php:131
 msgid "Attendance"
@@ -4930,307 +4924,307 @@ msgstr "로그아웃 "
 msgid "Welcome %s"
 msgstr "안녕하세요, %s님"
 
-#: views/layout/elements/header.php:26 views/layout/elements/header.php:55
+#: views/layout/elements/header.php:32 views/layout/elements/header.php:61
 msgid "Total View"
 msgstr "종합보기"
 
-#: views/layout/elements/header.php:46 views/layout/elements/header.php:77
+#: views/layout/elements/header.php:52 views/layout/elements/header.php:83
 msgid "barcode"
 msgstr "바코드"
 
-#: views/layout/elements/header.php:66
+#: views/layout/elements/header.php:72
 msgid "View"
 msgstr "보기"
 
-#: views/layout/elements/header.php:73
+#: views/layout/elements/header.php:79
 msgid "Edit My Profile"
 msgstr "내정보 수정"
 
-#: views/layout/elements/header.php:96 views/layout/elements/header.php:98
+#: views/layout/elements/header.php:102 views/layout/elements/header.php:104
 msgid "User Manage"
 msgstr "회원관리"
 
-#: views/layout/elements/header.php:96 views/layout/elements/header.php:98
+#: views/layout/elements/header.php:102 views/layout/elements/header.php:104
 msgid "User Manage Description"
 msgstr "회원을 관리합니다"
 
-#: views/layout/elements/header.php:99
+#: views/layout/elements/header.php:105
 msgid "User Entrance"
 msgstr "회원입장"
 
-#: views/layout/elements/header.php:99
+#: views/layout/elements/header.php:105
 msgid "User Entrance Description"
 msgstr "회원입장을 관리합니다"
 
-#: views/layout/elements/header.php:100 views/message_prepares/search.php:15
+#: views/layout/elements/header.php:106 views/message_prepares/search.php:15
 msgid "User Search"
 msgstr "회원검색"
 
-#: views/layout/elements/header.php:100
+#: views/layout/elements/header.php:106
 msgid "User Search Description"
 msgstr "회원을 검색합니다"
 
-#: views/layout/elements/header.php:108 views/layout/elements/header.php:110
-#: views/layout/elements/header.php:118 views/layout/elements/header.php:120
+#: views/layout/elements/header.php:114 views/layout/elements/header.php:116
+#: views/layout/elements/header.php:124 views/layout/elements/header.php:126
 msgid "Reservation Manage"
 msgstr "예약관리"
 
-#: views/layout/elements/header.php:108 views/layout/elements/header.php:110
-#: views/layout/elements/header.php:118 views/layout/elements/header.php:120
+#: views/layout/elements/header.php:114 views/layout/elements/header.php:116
+#: views/layout/elements/header.php:124 views/layout/elements/header.php:126
 msgid "Reservation Manage Description"
 msgstr "예약을 관리합니다"
 
-#: views/layout/elements/header.php:111 views/layout/elements/header.php:127
+#: views/layout/elements/header.php:117 views/layout/elements/header.php:133
 msgid "Counsel Manage"
 msgstr "상담관리"
 
-#: views/layout/elements/header.php:111 views/layout/elements/header.php:127
+#: views/layout/elements/header.php:117 views/layout/elements/header.php:133
 msgid "Counsel Manage Description"
 msgstr "상담을 관리합니다"
 
-#: views/layout/elements/header.php:112 views/layout/elements/header.php:121
+#: views/layout/elements/header.php:118 views/layout/elements/header.php:127
 msgid "Trainer Active Manage"
 msgstr "PT 실시현황"
 
-#: views/layout/elements/header.php:112 views/layout/elements/header.php:121
+#: views/layout/elements/header.php:118 views/layout/elements/header.php:127
 msgid "Trainer Active Manage Description"
 msgstr "PT 실시현황을 살펴봅니다"
 
-#: views/layout/elements/header.php:135 views/layout/elements/header.php:141
-#: views/layout/elements/header.php:154
+#: views/layout/elements/header.php:141 views/layout/elements/header.php:147
+#: views/layout/elements/header.php:160
 msgid "Rent Manage"
 msgstr "락커관리"
 
-#: views/layout/elements/header.php:135 views/layout/elements/header.php:141
-#: views/layout/elements/header.php:154 views/layout/elements/header.php:162
+#: views/layout/elements/header.php:141 views/layout/elements/header.php:147
+#: views/layout/elements/header.php:160 views/layout/elements/header.php:168
 msgid "Rent Manage Description"
 msgstr "락커대여를 관리합니다"
 
-#: views/layout/elements/header.php:137 views/layout/elements/header.php:143
-#: views/layout/elements/header.php:149
+#: views/layout/elements/header.php:143 views/layout/elements/header.php:149
+#: views/layout/elements/header.php:155
 msgid "Facility Manage"
 msgstr "락커설정"
 
-#: views/layout/elements/header.php:137 views/layout/elements/header.php:143
-#: views/layout/elements/header.php:149
+#: views/layout/elements/header.php:143 views/layout/elements/header.php:149
+#: views/layout/elements/header.php:155
 msgid "Facility Manage Description"
 msgstr "락커를 관리합니다"
 
-#: views/layout/elements/header.php:162
+#: views/layout/elements/header.php:168
 msgid "Sport Wear Rent Manage"
 msgstr "운동복관리"
 
-#: views/layout/elements/header.php:168 views/layout/elements/header.php:170
-#: views/layout/elements/header.php:182 views/layout/elements/header.php:184
+#: views/layout/elements/header.php:174 views/layout/elements/header.php:176
+#: views/layout/elements/header.php:188 views/layout/elements/header.php:190
 msgid "Course Manage"
 msgstr "과목관리"
 
-#: views/layout/elements/header.php:171 views/layout/elements/header.php:177
+#: views/layout/elements/header.php:177 views/layout/elements/header.php:183
 msgid "Course Category Manage Description"
 msgstr "과목분류관리"
 
-#: views/layout/elements/header.php:198
+#: views/layout/elements/header.php:204
 msgid "Accounts Infomation"
 msgstr "매출정보"
 
-#: views/layout/elements/header.php:198 views/layout/elements/header.php:200
-#: views/layout/elements/header.php:201 views/layout/elements/header.php:212
+#: views/layout/elements/header.php:204 views/layout/elements/header.php:206
+#: views/layout/elements/header.php:207 views/layout/elements/header.php:218
 msgid "Account Analysis Description"
 msgstr "영업분석및 회원분석"
 
-#: views/layout/elements/header.php:200 views/layout/elements/header.php:207
+#: views/layout/elements/header.php:206 views/layout/elements/header.php:213
 msgid "Account Infomation"
 msgstr "매출정보"
 
-#: views/layout/elements/header.php:201 views/layout/elements/header.php:212
+#: views/layout/elements/header.php:207 views/layout/elements/header.php:218
 msgid "Account Analysis"
 msgstr "영업분석및 회원분석"
 
-#: views/layout/elements/header.php:221 views/layout/elements/header.php:223
+#: views/layout/elements/header.php:227 views/layout/elements/header.php:229
 msgid "Message Manage"
 msgstr "메세지관리"
 
-#: views/layout/elements/header.php:221 views/layout/elements/header.php:223
+#: views/layout/elements/header.php:227 views/layout/elements/header.php:229
 msgid "Message Manage Description"
 msgstr "메세지관리"
 
-#: views/layout/elements/header.php:224
+#: views/layout/elements/header.php:230
 msgid "Prepared Message Manage"
 msgstr "준비된메세지관리"
 
-#: views/layout/elements/header.php:224
+#: views/layout/elements/header.php:230
 msgid "Prepared Message Manage Description"
 msgstr "준비된메세지관리"
 
-#: views/layout/elements/header.php:226
+#: views/layout/elements/header.php:232
 msgid "Message Point Manage"
 msgstr "메세지포인트관리"
 
-#: views/layout/elements/header.php:226
+#: views/layout/elements/header.php:232
 msgid "Message Point Description"
 msgstr "메세지 전송 포인트를 관리합니다"
 
-#: views/layout/elements/header.php:235
+#: views/layout/elements/header.php:241
 msgid "Admin Menu"
 msgstr "관리자메뉴"
 
-#: views/layout/elements/header.php:235
+#: views/layout/elements/header.php:241
 msgid "Admin Menu Description"
 msgstr "관리자의 메뉴입니다"
 
-#: views/layout/elements/header.php:238 views/layout/elements/header.php:248
+#: views/layout/elements/header.php:244 views/layout/elements/header.php:254
 msgid "Notice Manage"
 msgstr "공지사항관리"
 
-#: views/layout/elements/header.php:238 views/layout/elements/header.php:248
+#: views/layout/elements/header.php:244 views/layout/elements/header.php:254
 msgid "Notice Manage Description"
 msgstr "공지사항관리"
 
-#: views/layout/elements/header.php:244
+#: views/layout/elements/header.php:250
 msgid "Employee Manage"
 msgstr "인원목록"
 
-#: views/layout/elements/header.php:244
+#: views/layout/elements/header.php:250
 msgid "Employee Manage Description"
 msgstr "직원을 관리합니다"
 
-#: views/layout/elements/header.php:251
+#: views/layout/elements/header.php:257
 msgid "Error Report"
 msgstr "지점수정요청"
 
-#: views/layout/elements/header.php:251
+#: views/layout/elements/header.php:257
 msgid "Error Report Description"
 msgstr "지점에서 수정을  요청합니다"
 
-#: views/layout/elements/header.php:254
+#: views/layout/elements/header.php:260
 msgid "Counsel Request"
 msgstr "App 상담문의"
 
-#: views/layout/elements/header.php:254
+#: views/layout/elements/header.php:260
 msgid "Counsel Request Description"
 msgstr "App 상담문의를 관리합니다"
 
-#: views/layout/elements/header.php:255
+#: views/layout/elements/header.php:261
 msgid "User Stop Request"
 msgstr "App 휴회신청"
 
-#: views/layout/elements/header.php:255
+#: views/layout/elements/header.php:261
 msgid "User Stop Request Description"
 msgstr "App 휴회신청을 관리합니다"
 
-#: views/layout/elements/header.php:259
+#: views/layout/elements/header.php:265
 msgid "Product Manage"
 msgstr "상품관리"
 
-#: views/layout/elements/header.php:259
+#: views/layout/elements/header.php:265
 msgid "Product Manage Description"
 msgstr "상품을 관리합니다"
 
-#: views/layout/elements/header.php:262
+#: views/layout/elements/header.php:268
 msgid "Product Category Manage"
 msgstr "상품분류관리"
 
-#: views/layout/elements/header.php:262
+#: views/layout/elements/header.php:268
 msgid "Product Category Manage Description"
 msgstr "상품분류를 관리합니다"
 
-#: views/layout/elements/header.php:269 views/layout/elements/header.php:271
+#: views/layout/elements/header.php:275 views/layout/elements/header.php:277
 msgid "Branch Manage"
 msgstr "지점관리"
 
-#: views/layout/elements/header.php:269 views/layout/elements/header.php:271
+#: views/layout/elements/header.php:275 views/layout/elements/header.php:277
 msgid "Branch Manage Description"
 msgstr "지점을 관리합니다"
 
-#: views/layout/elements/header.php:277 views/layout/elements/header.php:285
+#: views/layout/elements/header.php:283 views/layout/elements/header.php:291
 msgid "Center Manage"
 msgstr "센터관리"
 
-#: views/layout/elements/header.php:277 views/layout/elements/header.php:285
+#: views/layout/elements/header.php:283 views/layout/elements/header.php:291
 msgid "Center Manage Description"
 msgstr "센터를 관리합니다"
 
-#: views/layout/elements/header.php:278
+#: views/layout/elements/header.php:284
 msgid "Permission Manage"
 msgstr "권한관리"
 
-#: views/layout/elements/header.php:278
+#: views/layout/elements/header.php:284
 msgid "Permission Manage Description"
 msgstr "권한을 관리합니다"
 
-#: views/layout/elements/header.php:279
+#: views/layout/elements/header.php:285
 msgid "Role Manage"
 msgstr "역할관리"
 
-#: views/layout/elements/header.php:279
+#: views/layout/elements/header.php:285
 msgid "Role Manage Description"
 msgstr "역할을 관리합니다"
 
-#: views/layout/elements/header.php:280
+#: views/layout/elements/header.php:286
 msgid "Role-Permission Manage"
 msgstr "역할별권한관리"
 
-#: views/layout/elements/header.php:280
+#: views/layout/elements/header.php:286
 msgid "Role-Permission Manage Description"
 msgstr "역할별 권한을 관리합니다"
 
-#: views/layout/elements/header.php:281
+#: views/layout/elements/header.php:287
 msgid "Admin-Permission Manage"
 msgstr "사용자별권한관리"
 
-#: views/layout/elements/header.php:281
+#: views/layout/elements/header.php:287
 msgid "Admin-Permission Manage Description"
 msgstr "사용자별권한관리"
 
-#: views/layout/elements/header.php:283
+#: views/layout/elements/header.php:289
 msgid "Job Manage"
 msgstr "직업관리"
 
-#: views/layout/elements/header.php:283
+#: views/layout/elements/header.php:289
 msgid "Job Description"
 msgstr "직업을 관리합니다"
 
-#: views/layout/elements/header.php:284
+#: views/layout/elements/header.php:290
 msgid "Visit Route Manage"
 msgstr "방문경로관리"
 
-#: views/layout/elements/header.php:284
+#: views/layout/elements/header.php:290
 msgid "Visit Route Description"
 msgstr "방문경로를 관리합니다"
 
-#: views/layout/elements/header.php:290
+#: views/layout/elements/header.php:296
 msgid "Order Block Excel"
 msgstr "엑셀로 수강입력"
 
-#: views/layout/elements/header.php:290
+#: views/layout/elements/header.php:296
 msgid "Order Block Exxel Description"
 msgstr "엑셀로 수강을 입력합니다"
 
-#: views/layout/elements/header.php:291
+#: views/layout/elements/header.php:297
 msgid "Enroll PT"
 msgstr "PT일련번호 검색"
 
-#: views/layout/elements/header.php:291
+#: views/layout/elements/header.php:297
 msgid "Enroll PT Manage Description"
 msgstr "PT일련번호 검색을 합니다"
 
-#: views/layout/elements/header.php:292
+#: views/layout/elements/header.php:298
 msgid "No Fc"
 msgstr "FC 미지정 회원"
 
-#: views/layout/elements/header.php:292
+#: views/layout/elements/header.php:298
 msgid "No Fc Manage Description"
 msgstr "FC 미지정 회원 관리하기"
 
-#: views/layout/elements/header.php:293
+#: views/layout/elements/header.php:299
 msgid "Order Edit Log Description"
 msgstr "주문수정기록을 확인합니다"
 
-#: views/layout/elements/header.php:294
+#: views/layout/elements/header.php:300
 msgid "Account Edit Log Description"
 msgstr "정산수정기록을 확인합니다"
 
-#: views/layout/elements/header.php:295
+#: views/layout/elements/header.php:301
 msgid "Counsel Edit Log Description"
 msgstr "상담수정기록을 확인합니다"
 
@@ -6203,6 +6197,22 @@ msgstr "휴회종료"
 msgid "Not Attendance"
 msgstr "미출석"
 
+#: views/searches/search_form_field.php:28
+msgid "Birthday Search Type"
+msgstr "생일검색방법"
+
+#: views/searches/search_form_field.php:44
+msgid "Year Search"
+msgstr "생년검색"
+
+#: views/searches/search_form_field.php:56
+msgid "Month Search"
+msgstr "월별검색"
+
+#: views/searches/search_form_field.php:68
+msgid "Custom Search"
+msgstr "기간맞춤검색"
+
 #: views/send_end_alert_messages/form.php:16
 #: views/send_end_alert_messages/list.php:24
 msgid "Message Prepare"
@@ -6432,6 +6442,12 @@ msgstr "정말로 해당 회원(이름 : %s, 카드번호 : %s)을 삭제합니�
 #: views/users/form.php:73
 msgid "If Not Insert, Auto Generation"
 msgstr "미 입력시 자동생성"
+
+#~ msgid ""
+#~ "The birthday search end date must smaller than more birthday search start "
+#~ "date +1 year."
+#~ msgstr ""
+#~ "생일검색시 조회종료일자는 조회시작일자와 차이가 1년 이내여야 됩니다."
 
 #~ msgid "%s`s Stop End Date must smaller than or same +%d Day(%s)"
 #~ msgstr ""

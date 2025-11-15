@@ -236,22 +236,41 @@ class Search extends SL_Model
 
         if (!empty($this->search['search_field'])) {
             if ($this->search['search_field'] == 'birthday') {
-                $start_birthday_obj = new DateTime($this->search['start_birthday']);
-                $end_birthday_obj = new DateTime($this->search['end_birthday']);
 
-                
-                $start_birthday_year=$start_birthday_obj->format('Y');
-                $end_birthday_year=$end_birthday_obj->format('Y');
+                switch($this->search['birthday_search_type']) {
+                    case 'custom_period_search' :
+                        if(!empty($this->search['start_birthday'])) {
+                            $start_birthday_obj = new DateTime($this->search['start_birthday']);
+                            $start_birthday=$start_birthday_obj->format('Y-m-d');                            
+                        }
 
-                $start_birthday=$start_birthday_obj->format('2000-m-d');
-                $end_birthday=$end_birthday_obj->format('2000-m-d');                   
+                        if(!empty($this->search['end_birthday'])) {                        
+                            $end_birthday_obj = new DateTime($this->search['end_birthday']);
+                            $end_birthday=$end_birthday_obj->format('Y-m-d');                            
+                        }
+                        
+                        if(!empty($this->search['start_birthday']) and !empty($this->search['end_birthday'])) {
+                            $this->pdo->where('DATE_FORMAT(u.birthday,"%Y-%m-%d") BETWEEN "'.$start_birthday.'" AND "'.$end_birthday.'"');
+                        } else {
+                            if(!empty($this->search['start_birthday'])) {
+                                $this->pdo->where('DATE_FORMAT(u.birthday,"%Y-%m-%d")>="'.$start_birthday.'"');
+                            }
 
-                if($start_birthday_year==$end_birthday_year) {                                 
-                    $this->pdo->where('DATE_FORMAT(u.birthday,"2000-%m-%d") BETWEEN "'.$start_birthday.'" AND "'.$end_birthday.'"');
-                } else {
-                    $this->pdo->where('((DATE_FORMAT(u.birthday,"2000-%m-%d") BETWEEN "'.$start_birthday.'" AND "2000-12-31") OR (DATE_FORMAT(u.birthday,"2000-%m-%d") BETWEEN "2000-01-01" AND "'.$end_birthday.'"))');
+                            if(!empty($this->search['end_birthday'])) {
+                                $this->pdo->where('DATE_FORMAT(u.birthday,"%Y-%m-%d")<="'.$end_birthday.'"');
+                            }
+                        }
+                        break;
+                    case 'birthday_month' :
+                        $birthday_month_obj = new DateTime($this->search['birthday_month']);                    
+                        $birthday_month=$birthday_month_obj->format('m');                                                
+                        $this->pdo->where('DATE_FORMAT(u.birthday,"%m")="'.$birthday_month.'"');  
+                        break;
+                    default : 
+                        $birthday_year_obj = new DateTime($this->search['birthday_year']);
+                        $birthday_year=$birthday_year_obj->format('Y');
+                        $this->pdo->where('DATE_FORMAT(u.birthday,"%Y")="'.$birthday_year.'"');           
                 }
-                
                 $search_birthday=true;
             } else {
                 if (!empty($this->search['search_field'])) {

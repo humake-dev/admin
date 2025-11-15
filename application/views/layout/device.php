@@ -7,9 +7,6 @@
   <?php echo $style_for_layout ?>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Sleeping-Lion" />
-  <!--[if IE]>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <![endif]-->
   </head>
   <body>
     <?php echo $contents_for_layout ?>

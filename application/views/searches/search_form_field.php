@@ -19,15 +19,71 @@
             <?php anchor('/search?type=field', _('Turn off Search')); ?>
         <?php endif; ?>
     </div>
-    <div id="field_period_form" class="col-12 col-lg-8 form-group"<?php if ($this->input->get('search_field') != 'birthday'): ?> style="display:none"<?php endif; ?>>
+
+
+    <div id="field_period_form" class="col-12 col-lg-8"<?php if ($this->input->get('search_field') != 'birthday'): ?> style="display:none"<?php endif; ?>>
+
+
+<div class="form-group">
+  <label><?php echo _('Birthday Search Type'); ?></label>
+  <div class="form-row">
+    <div class="col-12">
+
+    <?php 
+$selected = $this->input->get('birthday_search_type');
+
+?>
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="radio"
+           name="birthday_search_type"
+           id="type_birthday_year"
+           value="birthday_year"
+           class="form-check-input"
+           <?= ($selected === null || $selected === 'birthday_year') ? 'checked' : '' ?>>
+    <?= _('Year Search'); ?>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="radio"
+           name="birthday_search_type"
+           id="type_birthday_month"
+           value="birthday_month"
+           class="form-check-input"
+           <?= ($selected === 'birthday_month') ? 'checked' : '' ?>>
+    <?= _('Month Search'); ?>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="radio"
+           name="birthday_search_type"
+           id="type_custom_period_search"
+           value="custom_period_search"
+           class="form-check-input"
+           <?= ($selected === 'custom_period_search') ? 'checked' : '' ?>>
+    <?= _('Custom Search'); ?>
+  </label>
+</div>
+      
+    </div>
+  </div>
+</div>
+
+
         <div class="form-row">
             <div class="col-6">
             <label for="start_date"><?php echo _('Birthday'); ?></label>
             <?php 
                 $value_start_birthday = set_value('start_birthday');
-                $value_end_birthday = set_value('end_birthday');            
+                $value_end_birthday = set_value('end_birthday');
+                $value_birthday_year = set_value('birthday_year',$this->input->get('birthday_year'));
+                $value_birthday_month = set_value('birthday_month',$this->input->get('birthday_month'));
             ?>
-            <div class="input-group-prepend date">
+            <div id="birthday_custom_serach_input" class="input-group-prepend date" style="display:none">
             <?php 
                 echo form_input(array(
                 'name' => 'start_birthday',
@@ -51,6 +107,34 @@
                 <span class="material-icons">date_range</span>
             </div>
             </div>
+
+
+            <div id="birthday_year_serach_input">
+             <?php 
+                echo form_input(array(
+                'name' => 'birthday_year',
+                'id' => 'yearpicker',
+                'value' => $value_birthday_year,
+                'class' => 'form-control',
+                'style'=>'width:150px',
+                'placeholder'=>'년도 선택'
+                )); 
+            ?>
+            </div>
+
+            <div id="birthday_month_serach_input" style="display:none">
+             <?php 
+                echo form_input(array(
+                'name' => 'birthday_month',
+                'id' => 'schMonth',
+                'value' => $value_birthday_month,
+                'class' => 'form-control',
+                'style'=>'width:150px',
+                'placeholder'=>'월 선택'
+                )); 
+            ?>
+            </div>
+
             </div>
         </div>
     </div>
@@ -59,3 +143,7 @@
     </div>
 </div>
 <?php echo form_close(); ?>
+<style>
+    .ui-datepicker-header {display:none}
+
+</style>
