@@ -204,10 +204,10 @@ $(function () {
     $("#s_user_type").effect('highlight');
   });
 
-var currentYear = new Date().getFullYear();
-var startYear = currentYear - 100;
-
-$('#yearpicker').datepicker({
+  var currentYear = new Date().getFullYear();
+  var startYear = currentYear - 100;
+  
+  $('#yearpicker').datepicker({
     format: "yyyy",
     viewMode: "years",
     minViewMode: "years",
