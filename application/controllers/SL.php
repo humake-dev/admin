@@ -43,7 +43,7 @@ class SL_Controller extends CI_Controller
     protected $check_permission = true;
 
     // assets version
-    protected $assets_version = 4;
+    protected $assets_version = 5;
     protected $file_server_type = 'local';
 
     public function __construct()
@@ -370,7 +370,7 @@ class SL_Controller extends CI_Controller
             $this->layout->add_css('font-face.css');
             $this->layout->add_css('index.css?version=' . $this->assets_version);
         } else {
-            // uglifycss --output common.min.css bootstrap.min.css animate.min.css bootstrap-datepicker.css style.css jquery.fancybox-1.3.4.css font-face-product.css index.css
+            // uglifycss --output common.min.css bootstrap.min.css animate.min.css bootstrap-datepicker.css style.css jquery.fancybox-1.3.4.css font-face-product.css jquery-ui.css index.css
             $this->layout->add_css('common.min.css?version=' . $this->assets_version);
         }
 
