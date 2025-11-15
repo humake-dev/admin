@@ -368,6 +368,7 @@ class SL_Controller extends CI_Controller
             $this->layout->add_css('style.css?version=' . $this->assets_version);
             $this->layout->add_css('jquery.fancybox-1.3.4.css');
             $this->layout->add_css('font-face.css');
+            $this->layout->add_css('jquery-ui.css');
             $this->layout->add_css('index.css?version=' . $this->assets_version);
         } else {
             // uglifycss --output common.min.css bootstrap.min.css animate.min.css bootstrap-datepicker.css style.css jquery.fancybox-1.3.4.css font-face-product.css jquery-ui.css index.css
