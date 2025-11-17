@@ -69,9 +69,6 @@ class Imports extends SL_Controller
         $worksheet = $excelObj->getSheet(0);
         $lastRow = $worksheet->getHighestRow();
 
-        // $this->load->model('User');
-        // $this->load->model('TempUser');
-
         $users = array();
 
         for ($row = 2; $row <= $lastRow; ++$row) {
@@ -80,7 +77,6 @@ class Imports extends SL_Controller
             $name = $worksheet->getCell('C' . $row)->getValue();
             
             $user['name']=$name;
-
 
             $phone = $worksheet->getCell('D' . $row)->getValue();
             $user['phone']=$phone;
@@ -94,12 +90,8 @@ class Imports extends SL_Controller
             }
             $user['gender']=$gender;
             
-            $birthday = $worksheet->getCell('Y' . $row)->getValue();
-            if(!empty($birthday)) {    
-                $birthday = PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject(
-                    $worksheet->getCell('Y'.$row)->getValue()
-                )->format('Y-m-d');   
-                
+            $birthday = $worksheet->getCell('Y' . $row)->getFormattedValue();
+            if(!empty($birthday)) {
                 $user['birthday']=$birthday;
             }
 
@@ -120,10 +112,6 @@ $memo = trim($memo);
 
             $users[]=$user;
         }
-
-        echo '<pre>';
-        print_r($users);
-        echo '</pre>';
 
         $this->load->model('Import');
         $this->Import->insert_user($users);

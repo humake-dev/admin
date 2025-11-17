@@ -10,6 +10,24 @@ class Import extends SL_Model
         if (!count($users)) {
             return false;
         }
+        
+        $sql_count = 'SELECT count(*) as cnt FROM user_access_cards WHERE card_no=? AND branch_id=?';        
+
+
+        foreach($users as $user) {
+            if(empty($user['card_no'])) {
+                return false;
+            }
+
+            $result=$this->pdo->query($sql_count, array($user['card_no'], $this->session->userdata('branch_id')));
+
+            $rr=$result->row_array();
+            if(empty($rr['cnt'])) {
+                echo 'user_card_no '.$user['card_no'].' duplicated';
+                exit;
+            }
+        }
+
 
         $this->pdo->trans_start();
 
