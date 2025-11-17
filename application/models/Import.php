@@ -13,35 +13,40 @@ class Import extends SL_Model
 
         $this->pdo->trans_start();
 
-        $sql = 'INSERT INTO users(branch_id,name,phone,gender,birthday,registration_date,created_at,updated_at)
-    VALUES(?,?,?,?,?,?,NOW(),NOW())
-    ON DUPLICATE KEY UPDATE id=LAST_INSERT_ID(id),name=?,phone=?,gender=?,birthday=?,registration_date=?,updated_at=NOW()';
+        $sql = 'INSERT INTO users(branch_id,name,phone,gender,birthday,registration_date,created_at,updated_at) VALUES(?,?,?,?,?,?,NOW(),NOW())';
         $sql_memo = 'INSERT INTO user_contents(user_id,content,created_at,updated_at) VALUES(?,?,NOW(),NOW())';
         $sql_card_no = 'INSERT INTO user_access_cards(user_id,card_no,created_at,updated_at) VALUES(?,?,NOW(),NOW())';
-        $sql_old_id = 'INSERT INTO user_old_ids(user_id,old_id,updated_at,created_at) VALUES(?,?,NOW(),NOW()) ON DUPLICATE KEY UPDATE updated_at=NOW()';
-        $sql_compnay = 'INSERT INTO user_additionals(user_id,company,created_at,updated_at) VALUES(?,?,NOW(),NOW())';
 
+        $sql_count = 'SELECT count(*) as cnt FROM users WHERE phone=? AND branch_id=?';
+
+
+
+        // $sql_compnay = 'INSERT INTO user_additionals(user_id,company,created_at,updated_at) VALUES(?,?,NOW(),NOW())';
+
+        /*
         $sql_fc = 'INSERT INTO user_fcs(user_id,fc_id,created_at,updated_at) VALUES(?,?,NOW(),NOW())';
-        $sql_trainer = 'INSERT INTO user_trainers(user_id,trainer_id,created_at,updated_at) VALUES(?,?,NOW(),NOW())';
+        $sql_trainer = 'INSERT INTO user_trainers(user_id,trainer_id,created_at,updated_at) VALUES(?,?,NOW(),NOW())'; */
 
         foreach ($users as $user) {
-            $this->pdo->join('user_old_ids as uoi', 'uoi.user_id=u.id');
+            $result=$this->pdo->query($sql_count, array($user['phone'], $this->session->userdata('branch_id')));
+
+            $rr=$result->row_array();
+            if(!empty($rr['cnt'])) {
+                continue;
+            }
+
+           /*  $this->pdo->join('user_old_ids as uoi', 'uoi.user_id=u.id');
             $this->pdo->where(array('u.enable' => 1, 'uoi.old_id' => $user['old_id']));
             if ($this->pdo->count_all_results('users as u')) {
                 continue;
-            }
+            } */
 
             $this->pdo->query($sql, array($this->session->userdata('branch_id'),
                 $user['name'],
                 $user['phone'],
                 $user['gender'],
                 $user['birthday'],
-                $user['registration_date'],
-                $user['name'],
-                $user['phone'],
-                $user['gender'],
-                $user['birthday'],
-                $user['registration_date'],
+                $user['registration_date']
             ));
 
             $user_id = $this->pdo->insert_id();
@@ -50,14 +55,10 @@ class Import extends SL_Model
                 $this->pdo->query($sql_card_no, array($user_id, $user['card_no']));
             }
 
-            if (!empty($user['old_id'])) {
-                $this->pdo->query($sql_old_id, array($user_id, $user['old_id']));
-            }
-
             if (!empty($user['memo'])) {
                 $this->pdo->query($sql_memo, array($user_id, $user['memo']));
             }
-
+            /*
             if (!empty($user['company'])) {
                 $this->pdo->query($sql_compnay, array($user_id, $user['company']));
             }
@@ -86,7 +87,7 @@ class Import extends SL_Model
                 if (!empty($trainer_id)) {
                     $this->pdo->query($sql_trainer, array($user_id, $trainer_id));
                 }
-            }
+            } */
 
         }
         $this->pdo->trans_complete();
@@ -566,11 +567,33 @@ class Import extends SL_Model
         $sql_card_no = 'INSERT INTO user_access_cards(user_id,card_no,created_at,updated_at) VALUES(?,?,NOW(),NOW())';
         $sql_old_id = 'INSERT INTO user_old_ids(user_id,old_id,updated_at,created_at) VALUES(?,?,NOW(),NOW()) ON DUPLICATE KEY UPDATE updated_at=NOW()';
 
-        $sql_find_product = 'SELECT c.* FROM courses AS c INNER JOIN products AS p ON c.product_id=p.id WHERE c.id=? AND p.branch_id=?';
+        $sql_find_product = 'SELECT c.*,p.price FROM courses AS c INNER JOIN products AS p ON c.product_id=p.id WHERE c.id=? AND p.branch_id=?';
+
+        $query = $this->pdo->query($sql_find_product, array($this->input->post('course_id'), $this->session->userdata('branch_id')));
+        $product_result=$query->result()[0];
+        $product_id = $product_result->product_id;
+        $default_price=$product_result->price;
+       
 
         foreach ($enrolls as $index => $enroll) {
             if ($this->input->post('course_id')) {
+                $user_id=0;
+                
                 $enrolls[$index]['course_id'] = $this->input->post('course_id');
+                $enrolls[$index]['product_id'] = $product_id;
+
+        $query = $this->pdo->query('SELECT * FROM users as u WHERE u.phone=? AND u.branch_id=?', array($enroll['phone'], $this->session->userdata('branch_id')));
+        $user_result=$query->result()[0];
+        $user_id=$user_result->id; 
+
+                $enrolls[$index]['user_id'] = $user_id;
+                $enrolls[$index]['original_price'] = $default_price*$enroll['quantity']; 
+
+                if(empty($enroll['payment'])) {
+                    $enrolls[$index]['price'] = 0;
+                } else {
+                    $enrolls[$index]['price'] =  $enrolls[$index]['original_price'] - $enroll['payment'];
+                }
 
                 if ($is_pt) {
                     if (empty($enroll['user_id'])) {
@@ -613,7 +636,7 @@ class Import extends SL_Model
 
                     $query = $this->pdo->query($sql_find_product, array($this->input->post('course_id'), $this->session->userdata('branch_id')));
                     $enrolls[$index]['product_id'] = $query->result()[0]->product_id;
-                }
+                }              
             } else {
                 foreach ($this->input->post('course') as $ll) {
                     if ($ll['prename'] == $enroll['course']) {
@@ -631,7 +654,7 @@ class Import extends SL_Model
             }
 
             $enrolls[$index]['type'] = 'C';
-
+/* 
             if ($this->input->post('employee')) {
                 foreach ($this->input->post('employee') as $ll) {
                     if ($ll['prename'] == $enroll['employee']) {
@@ -641,15 +664,21 @@ class Import extends SL_Model
                 }
             } else {
                 $enrolls[$index]['trainer_id'] = $course_query->result()[0]->trainer_id;
-            }
-        }
+            }*/
+        } 
 
         return $this->insert_enroll_data($enrolls);
     }
 
     private function insert_enroll_data($enrolls)
     {
-        $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,original_price,price,payment,created_at,updated_at) VALUES(?,?,?,?,?,?,NOW(),NOW())';
+            echo '<pre>';
+            print_r($enrolls);
+            echo '</pre>';
+        
+        $result=array();
+
+        $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,original_price,price,payment,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?)';
         $sql_order_product = 'INSERT INTO order_products(order_id,product_id,total_price,quantity) VALUES(?,?,?,?)';
         $sql = 'INSERT INTO enrolls(
       order_id,
@@ -671,6 +700,8 @@ class Import extends SL_Model
         $sql_account_product = 'INSERT INTO account_products(account_id,product_id) VALUES(?,?)';
         $sql_update_enroll = 'UPDATE enrolls SET quantity=?,use_quantity=? WHERE id=?';
 
+        $sql_memo = 'INSERT INTO order_contents(order_id,content,created_at,updated_at) VALUES(?,?,NOW(),NOW())';
+
         $this->pdo->trans_start();
 
         foreach ($enrolls as $enroll) {
@@ -678,9 +709,11 @@ class Import extends SL_Model
                 $this->session->userdata('branch_id'),
                 $enroll['user_id'],
                 $enroll['transaction_date'],
+                $enroll['original_price'],
                 $enroll['price'],
-                $enroll['price'],
-                $enroll['price'],
+                $enroll['payment'],
+                $enroll['created_at'],
+                $enroll['updated_at'],                
             ));
             $order_id = $this->pdo->insert_id();
 
@@ -716,6 +749,12 @@ class Import extends SL_Model
 
             $this->pdo->query($sql_account_order, array($account_id, $order_id));
             $this->pdo->query($sql_account_product, array($account_id, $enroll['product_id']));
+
+            $result[] = array('user_id' => $enroll['user_id'], 'order_id' => $order_id, 'enroll_id' => $enroll_id);
+
+            if(!empty($enroll['content'])) {
+                $this->pdo->query($sql_memo, array($order_id, $enroll['memo']));
+            }
 
             if (!empty($enroll['refund'])) {
                 $this->pdo->join('orders as o', 'e.order_id=o.id');
@@ -758,19 +797,24 @@ class Import extends SL_Model
             if (empty($user_count)) {
                 echo 'user_id not exists :' . $enroll['user_id'] . '<br />';
             } else {
-                $this->pdo->select('u.registration_date');
-                $this->pdo->where(array('u.id' => $enroll['user_id']));
-                $query = $this->pdo->get('users as u');
-                $user_content = $query->row_array();
+            //    $this->pdo->select('u.registration_date');
+            //    $this->pdo->where(array('u.id' => $enroll['user_id']));
+            //    $query = $this->pdo->get('users as u');
+              //  $user_content = $query->row_array();
 
-                if ($user_content['registration_date'] > $enroll['transaction_date']) {
+               /* if ($user_content['registration_date'] > $enroll['transaction_date']) {
                     $this->pdo->update('users', array('registration_date' => $enroll['transaction_date']), array('id' => $enroll['user_id']));
-                }
+                } */
             }
         }
 
         $this->pdo->trans_complete();
 
+        
+            echo '<pre>';
+            print_r($result);
+            echo '</pre>';
+            exit;
         if ($this->pdo->trans_status() === false) {
             return false;  // generate an error... or use the log_message() function to log your error
         } else {
