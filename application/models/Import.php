@@ -692,7 +692,7 @@ class Import extends SL_Model
     {
         $result=array();
 
-        $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,original_price,price,payment,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?)';
+        $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,created_at,updated_at) VALUES(?,?,?,?,?)';
         $sql_order_product = 'INSERT INTO order_products(order_id,product_id,total_price,quantity) VALUES(?,?,?,?)';
         $sql = 'INSERT INTO enrolls(
       order_id,
@@ -723,9 +723,6 @@ class Import extends SL_Model
                 $this->session->userdata('branch_id'),
                 $enroll['user_id'],
                 $enroll['transaction_date'],
-                $enroll['original_price'],
-                $enroll['price'],
-                $enroll['payment'],
                 $enroll['created_at'],
                 $enroll['updated_at'],                
             ));
@@ -863,7 +860,7 @@ class Import extends SL_Model
 
         $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,created_at,updated_at) VALUES(?,?,?,?,?)';
         $sql_order_product = 'INSERT INTO order_products(order_id,product_id) VALUES(?,?)';
-        $sql = 'INSERT INTO rents(order_id,facility_id,no, insert_quantity,start_datetime,end_datetime) VALUES(?,?,?,?,?)';
+        $sql = 'INSERT INTO rents(order_id,facility_id,no, insert_quantity,start_datetime,end_datetime) VALUES(?,?,?,?,?,?)';
         //$sql_account = 'INSERT INTO accounts(account_category_id,branch_id,user_id,transaction_date,cash,created_at) VALUES(' . ADD_RENT . ',?,?,?,?,NOW())';
        // $sql_account_order = 'INSERT INTO account_orders(account_id,order_id) VALUES(?,?)';
 
