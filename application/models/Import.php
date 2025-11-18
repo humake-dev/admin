@@ -11,7 +11,7 @@ class Import extends SL_Model
             return false;
         }
         
-        $sql_count = 'SELECT count(*) as cnt FROM user_access_cards WHERE card_no=? AND branch_id=?';        
+        $sql_count = 'SELECT count(*) as cnt FROM user_access_cards WHERE card_no=?';        
 
 
         foreach($users as $user) {
@@ -19,10 +19,10 @@ class Import extends SL_Model
                 return false;
             }
 
-            $result=$this->pdo->query($sql_count, array($user['card_no'], $this->session->userdata('branch_id')));
+            $result=$this->pdo->query($sql_count, array($user['card_no']));
 
             $rr=$result->row_array();
-            if(empty($rr['cnt'])) {
+            if(!empty($rr['cnt'])) {
                 echo 'user_card_no '.$user['card_no'].' duplicated';
                 exit;
             }
@@ -690,10 +690,6 @@ class Import extends SL_Model
 
     private function insert_enroll_data($enrolls)
     {
-            echo '<pre>';
-            print_r($enrolls);
-            echo '</pre>';
-        
         $result=array();
 
         $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,original_price,price,payment,created_at,updated_at) VALUES(?,?,?,?,?,?,?,?)';
@@ -846,9 +842,12 @@ class Import extends SL_Model
             return false;
         }
 
+        $facility_id=$this->input->post('facility_id');
         $sql_find_product = 'SELECT * FROM facilities as f INNER JOIN products as p ON f.product_id=p.id WHERE f.id=? AND p.branch_id=?';
+        $facility_query = $this->pdo->query($sql_find_product, array($facility_id, $this->session->userdata('branch_id')));
+        $product_id = $facility_query->result()[0]->product_id;
 
-        $skip = array();
+        /*            
         foreach ($rents as $index => $rent) {
             foreach ($this->input->post('locker') as $ll) {
                 if ($ll['prename'] == $rent['locker']) {
@@ -858,44 +857,51 @@ class Import extends SL_Model
                     $rents[$index]['product_id'] = $facility_query->result()[0]->product_id;
                 }
             }
-        }
+        } */
 
         $this->pdo->trans_start();
 
-        $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,original_price,price,payment,created_at,updated_at) VALUES(?,?,?,?,?,?,NOW(),NOW())';
-        $sql_order_product = 'INSERT INTO order_products(order_id,product_id,total_price) VALUES(?,?,?)';
-        $sql = 'INSERT INTO rents(order_id,facility_id,no,start_datetime,end_datetime) VALUES(?,?,?,?,?)';
-        $sql_account = 'INSERT INTO accounts(account_category_id,branch_id,user_id,transaction_date,cash,created_at) VALUES(' . ADD_RENT . ',?,?,?,?,NOW())';
-        $sql_account_order = 'INSERT INTO account_orders(account_id,order_id) VALUES(?,?)';
+        $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,created_at,updated_at) VALUES(?,?,?,?,?)';
+        $sql_order_product = 'INSERT INTO order_products(order_id,product_id) VALUES(?,?)';
+        $sql = 'INSERT INTO rents(order_id,facility_id,no, insert_quantity,start_datetime,end_datetime) VALUES(?,?,?,?,?)';
+        //$sql_account = 'INSERT INTO accounts(account_category_id,branch_id,user_id,transaction_date,cash,created_at) VALUES(' . ADD_RENT . ',?,?,?,?,NOW())';
+       // $sql_account_order = 'INSERT INTO account_orders(account_id,order_id) VALUES(?,?)';
 
         foreach ($rents as $rent) {
+            $query = $this->pdo->query('SELECT * FROM users as u WHERE u.phone=? AND u.branch_id=?', array($rent['phone'], $this->session->userdata('branch_id')));
+            $user_result=$query->result()[0];
+            $user_id=$user_result->id; 
+
+
             $this->pdo->query($sql_order, array(
                 $this->session->userdata('branch_id'),
-                $rent['user_id'],
+                $user_id,
                 $rent['transaction_date'],
-                $rent['cash'],
-                $rent['cash'],
-                $rent['cash'],
+                $rent['updated_at'],
+                $rent['created_at'],                                
+            //    $rent['cash'],
+             //   $rent['cash'],
+             //   $rent['cash'],
             ));
             $order_id = $this->pdo->insert_id();
 
             $this->pdo->query($sql_order_product, array(
                 $order_id,
-                $rent['product_id'],
-                $rent['cash'],
+                $product_id
             ));
 
             $this->pdo->query($sql, array(
                 $order_id,
-                $rent['locker_id'],
+                $facility_id,
                 $rent['no'],
+                $rent['insert_quantity'],
                 $rent['start_date'] . ' 00:00:01',
                 $rent['end_date'] . ' 23:59:59',
             ));
-            $locker_user_id = $this->pdo->insert_id();
-            $this->pdo->query($sql_account, array($this->session->userdata('branch_id'), $rent['user_id'], $rent['transaction_date'], $rent['cash']));
-            $account_id = $this->pdo->insert_id();
-            $this->pdo->query($sql_account_order, array($account_id, $order_id));
+
+           // $this->pdo->query($sql_account, array($this->session->userdata('branch_id'), $rent['user_id'], $rent['transaction_date'], $rent['cash']));
+           // $account_id = $this->pdo->insert_id();
+           // $this->pdo->query($sql_account_order, array($account_id, $order_id));
         }
         $this->pdo->trans_complete();
 
