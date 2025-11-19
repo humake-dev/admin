@@ -236,7 +236,8 @@ class Search extends SL_Model
 
         if (!empty($this->search['search_field'])) {
             if ($this->search['search_field'] == 'birthday') {
-
+                $order='DATE_FORMAT(u.birthday,"%m-%d")';
+                $desc = 'asc';
                 switch($this->search['birthday_search_type']) {
                     case 'custom_period_search' :
                         if(!empty($this->search['start_birthday'])) {
@@ -248,7 +249,32 @@ class Search extends SL_Model
                             $end_birthday_obj = new DateTime($this->search['end_birthday']);
                             $end_birthday=$end_birthday_obj->format('Y-m-d');                            
                         }
+
+
                         
+                        if(empty($this->search['include_year'])) {
+                          if(!empty($this->search['start_birthday']) and !empty($this->search['end_birthday'])) {
+                            if($start_birthday_obj->format('Y')==$end_birthday_obj->format('Y')) {
+                                $this->pdo->where('DATE_FORMAT(u.birthday,"%m-%d") BETWEEN DATE_FORMAT("'.$start_birthday.'","%m-%d") AND DATE_FORMAT("'.$end_birthday.'","%m-%d")');
+                            } else {
+                                $this->pdo->where('(DATE_FORMAT(u.birthday,"%m-%d") BETWEEN DATE_FORMAT("'.$start_birthday.'","%m-%d") AND DATE_FORMAT("2050-12-31","%m-%d")) OR (DATE_FORMAT(u.birthday,"%m-%d") BETWEEN DATE_FORMAT("1950-01-01","%m-%d") AND DATE_FORMAT("'.$end_birthday.'","%m-%d"))');
+                $order='    (
+        (DATE_FORMAT(u.birthday, "%m%d") + 120000 - DATE_FORMAT("'.$start_birthday.'", "%m%d"))
+        % 120000
+    )';
+
+                            }
+                        } else {
+                            if(!empty($this->search['start_birthday'])) {
+                                $this->pdo->where('DATE_FORMAT(u.birthday,"%m-%d") BETWEEN DATE_FORMAT("'.$start_birthday.'","%m-%d") AND DATE_FORMAT("2050-12-31","%m-%d")');
+                            }
+
+                            if(!empty($this->search['end_birthday'])) {
+                                $this->pdo->where('DATE_FORMAT(u.birthday,"%m-%d") BETWEEN DATE_FORMAT("1950-01-01","%m-%d") AND DATE_FORMAT("'.$end_birthday.'","%m-%d")');
+                            }
+                        }
+                            
+                        } else {
                         if(!empty($this->search['start_birthday']) and !empty($this->search['end_birthday'])) {
                             $this->pdo->where('DATE_FORMAT(u.birthday,"%Y-%m-%d") BETWEEN "'.$start_birthday.'" AND "'.$end_birthday.'"');
                         } else {
@@ -259,6 +285,7 @@ class Search extends SL_Model
                             if(!empty($this->search['end_birthday'])) {
                                 $this->pdo->where('DATE_FORMAT(u.birthday,"%Y-%m-%d")<="'.$end_birthday.'"');
                             }
+                        }
                         }
                         break;
                     case 'birthday_month' :
@@ -491,7 +518,7 @@ class Search extends SL_Model
             }
         }
 
-        if (empty($count)) {         
+        if (empty($count)) {
             $order_s=$order.' '.$desc.',u.name asc';
             $this->pdo->order_by($order_s);
         }

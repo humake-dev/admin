@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: humake\n"
-"POT-Creation-Date: 2025-11-15 17:59+0900\n"
-"PO-Revision-Date: 2025-11-15 18:00+0900\n"
+"POT-Creation-Date: 2025-11-19 22:13+0900\n"
+"PO-Revision-Date: 2025-11-19 22:14+0900\n"
 "Last-Translator: \n"
 "Language-Team: sl\n"
 "Language: ko\n"
@@ -703,13 +703,13 @@ msgstr "신규신청건수"
 
 #: controllers/Accounts.php:574 controllers/Enrolls.php:807
 #: controllers/Pagination_aside.php:27 controllers/Pagination_aside.php:32
-#: controllers/Reservations.php:807 controllers/SL.php:1096
+#: controllers/Reservations.php:807 controllers/SL.php:1097
 msgid "First"
 msgstr "처음"
 
 #: controllers/Accounts.php:578 controllers/Enrolls.php:811
 #: controllers/Pagination_aside.php:28 controllers/Pagination_aside.php:33
-#: controllers/Reservations.php:811 controllers/SL.php:1100
+#: controllers/Reservations.php:811 controllers/SL.php:1101
 msgid "Last"
 msgstr "마지막"
 
@@ -800,7 +800,7 @@ msgstr "종료일"
 #: controllers/Admins.php:353 controllers/Admins.php:355
 #: controllers/Counsel_managers.php:127 controllers/Counsel_managers.php:129
 #: controllers/Order_extend.php:280 controllers/Order_extend.php:282
-#: controllers/SL.php:529 controllers/SL.php:531
+#: controllers/SL.php:530 controllers/SL.php:532
 msgid "Update Fail"
 msgstr "수정 실패"
 
@@ -855,7 +855,7 @@ msgid "Successfully Disabled Article"
 msgstr "사용중지되었습니다"
 
 #: controllers/Centers.php:106 controllers/Enrolls.php:831
-#: controllers/SL.php:411
+#: controllers/SL.php:412
 #, php-format
 msgid "The %s field must contain a unique value."
 msgstr "%s은(는) 이미존재합니다. 중복되지 않는 유일한 값이여야합니다."
@@ -1168,7 +1168,7 @@ msgstr "우선순위"
 #: controllers/Order_extend.php:539 controllers/Order_extend.php:541
 #: controllers/Others.php:209 controllers/Others.php:211
 #: controllers/Product_extend.php:100 controllers/Product_extend.php:102
-#: controllers/SL.php:674 controllers/SL.php:676 controllers/SL_file.php:469
+#: controllers/SL.php:675 controllers/SL.php:677 controllers/SL_file.php:469
 #: controllers/SL_photo.php:203
 msgid "Delete Fail"
 msgstr "삭제 실패"
@@ -1283,7 +1283,7 @@ msgstr "지점 %s에 카드번호 %s는 존재하지 않습니다"
 
 #: controllers/Employee_attendances.php:82 controllers/Employees.php:919
 #: controllers/Entrances.php:197 controllers/Entrances.php:226
-#: controllers/No_fcs.php:192 controllers/SL.php:406
+#: controllers/No_fcs.php:192 controllers/SL.php:407
 #: views/reservations/form.php:16 views/reservations/form.php:17
 #, php-format
 msgid "The %s field is required."
@@ -1385,7 +1385,7 @@ msgstr "성별"
 #: views/message_prepares/search.php:159 views/messages/search.php:125
 #: views/search_ys/list.php:32 views/searches/list.php:72
 #: views/searches/search_form_field.php:7
-#: views/searches/search_form_field.php:79 views/temp_users/content.php:67
+#: views/searches/search_form_field.php:81 views/temp_users/content.php:67
 #: views/temp_users/form.php:124 views/user_not_selects/index.php:57
 #: views/users/form.php:157
 msgid "Birthday"
@@ -1422,7 +1422,7 @@ msgstr "%s의 형식이 알맞지 않습니다."
 
 #: controllers/Employees.php:909 controllers/Order_extend.php:447
 #: controllers/Order_extend.php:475 controllers/Others.php:121
-#: controllers/Others.php:149 controllers/SL.php:643
+#: controllers/Others.php:149 controllers/SL.php:644
 msgid "id"
 msgstr "아이디"
 
@@ -1661,6 +1661,21 @@ msgstr "고장락커로 등록되었습니다"
 msgid "Successfully Delete Breakdown Facility"
 msgstr "고장락커가 해제되었습니다"
 
+#: controllers/Import_enrolls.php:53 controllers/Import_enrolls.php:55
+#: controllers/Import_rent_sws.php:53 controllers/Import_rent_sws.php:55
+#: controllers/Import_rents.php:53 controllers/Import_rents.php:55
+#: controllers/Imports.php:56 controllers/Imports.php:58
+#: controllers/Message_excels.php:56 controllers/Message_excels.php:58
+#: controllers/Order_block_excels.php:51 controllers/Order_block_excels.php:53
+msgid "Please, Insert Less Than or Equal To 200"
+msgstr "200개보다 작거나 같게 입력해주세요"
+
+#: controllers/Import_enrolls.php:134 controllers/Import_rent_sws.php:148
+#: controllers/Import_rents.php:128 controllers/Imports.php:122
+#: controllers/Message_excels.php:111 controllers/Order_block_excels.php:177
+msgid "Excel"
+msgstr ""
+
 #: controllers/Login.php:88 controllers/Login.php:92
 msgid "Not Match ID OR Password"
 msgstr "아이디 또는 비밀번호가 맞지않습니다"
@@ -1668,15 +1683,6 @@ msgstr "아이디 또는 비밀번호가 맞지않습니다"
 #: controllers/Login.php:105 views/login/index.php:8 views/login/index.php:34
 msgid "Login"
 msgstr "로그인"
-
-#: controllers/Message_excels.php:56 controllers/Message_excels.php:58
-#: controllers/Order_block_excels.php:51 controllers/Order_block_excels.php:53
-msgid "Please, Insert Less Than or Equal To 200"
-msgstr "200개보다 작거나 같게 입력해주세요"
-
-#: controllers/Message_excels.php:111 controllers/Order_block_excels.php:177
-msgid "Excel"
-msgstr ""
 
 #: controllers/Message_points.php:29 views/message_points/edit.php:21
 #: views/message_points/index.php:24
@@ -1739,8 +1745,8 @@ msgstr "회원이 없거나 보낼 수 없는 회원뿐입니다"
 #: controllers/Order_block_excels.php:160
 #: controllers/Order_block_excels.php:162 controllers/Order_blocks.php:188
 #: controllers/Order_blocks.php:190 controllers/Order_extend.php:188
-#: controllers/Order_extend.php:190 controllers/SL.php:466
-#: controllers/SL.php:468
+#: controllers/Order_extend.php:190 controllers/SL.php:467
+#: controllers/SL.php:469
 msgid "Insert Fail"
 msgstr "입력실패"
 
@@ -2061,7 +2067,7 @@ msgstr "락커대여가 취소되었습니다"
 msgid "Result"
 msgstr "결과"
 
-#: controllers/Reservations.php:248 controllers/SL.php:704
+#: controllers/Reservations.php:248 controllers/SL.php:705
 #: controllers/User_stops.php:715
 msgid "Successfully Created Article"
 msgstr "성공적으로 입력되었습니다"
@@ -2156,85 +2162,85 @@ msgstr "%s 수업이  취소 되었습니다."
 msgid "Main Title"
 msgstr "휴메이크 ERP"
 
-#: controllers/SL.php:407
+#: controllers/SL.php:408
 #, php-format
 msgid "The %s field must be at least %s characters in length."
 msgstr "%s은(는) 적어도 %s자 이상이여 합니다."
 
-#: controllers/SL.php:408
+#: controllers/SL.php:409
 #, php-format
 msgid "The %s field cannot exceed %s characters in length."
 msgstr "%s(은)는 많아도 %s자 보다는 적어야 합니다."
 
-#: controllers/SL.php:409 controllers/SL.php:410
+#: controllers/SL.php:410 controllers/SL.php:411
 #, php-format
 msgid "The %s field must contain only numbers."
 msgstr "%s은(는) 숫자형식이여야 합니다."
 
-#: controllers/SL.php:412
+#: controllers/SL.php:413
 #, php-format
 msgid "The %s field does not match the %s field."
 msgstr "%s(이)가 %s(와)과 일치하지 않습니다."
 
-#: controllers/SL.php:413
+#: controllers/SL.php:414
 #, php-format
 msgid "The %s field must be one of: %s."
 msgstr "%s(은)는 %s중 하나이여야 합니다"
 
-#: controllers/SL.php:414
+#: controllers/SL.php:415
 #, php-format
 msgid "The %s field must contain a number greater than %s."
 msgstr "%s(은)는 %s보다 커야됩니다."
 
-#: controllers/SL.php:415
+#: controllers/SL.php:416
 #, php-format
 msgid "The %s field must contain a number less than %s."
 msgstr "%s(은)는 %s보다 작아야됩니다."
 
-#: controllers/SL.php:416
+#: controllers/SL.php:417
 #, php-format
 msgid "The %s field must contain a valid email address."
 msgstr "%s은(는) 알맞은 이메일형식 이여야 합니다."
 
-#: controllers/SL.php:417
+#: controllers/SL.php:418
 #, php-format
 msgid "The %s field must contain a valid date."
 msgstr "%s은(는) 알맞은 날짜형식 이여야 합니다."
 
-#: controllers/SL.php:418
+#: controllers/SL.php:419
 #, php-format
 msgid "The %s field must contain a valid time."
 msgstr "%s은(는) 알맞은 시간형식 이여야 합니다."
 
-#: controllers/SL.php:419
+#: controllers/SL.php:420
 #, php-format
 msgid "The %s field must after date."
 msgstr "%s은 시작일보다 같거나 늦은날짜이여야 합니다."
 
-#: controllers/SL.php:420
+#: controllers/SL.php:421
 #, php-format
 msgid "The %s field must smaller than or equal origin enddate."
 msgstr "%s은 원종료일보다 이전이거나 같은날이여야합니다."
 
-#: controllers/SL.php:421
+#: controllers/SL.php:422
 msgid "The search end date must after search start date."
 msgstr "조회종료일자는 조회시작일자와 같거나 커야됩니다."
 
-#: controllers/SL.php:422
+#: controllers/SL.php:423
 #, php-format
 msgid "The %s field must after time."
 msgstr "%s은 시작시간보다 늦어야합니다."
 
-#: controllers/SL.php:423
+#: controllers/SL.php:424
 #, php-format
 msgid "The %s field must greater than or equal today."
 msgstr "%s은 오늘보다 이후이거나 같은날이여야합니다."
 
-#: controllers/SL.php:709
+#: controllers/SL.php:710
 msgid "Successfully Updated Article"
 msgstr "성공적으로 수정되었습니다"
 
-#: controllers/SL.php:714
+#: controllers/SL.php:715
 msgid "Successfully Deleted Article"
 msgstr "삭제되었습니다"
 
@@ -3039,7 +3045,7 @@ msgstr "내용보기"
 #: views/search_ys/search_form.php:66
 #: views/searches/search_form_default.php:188
 #: views/searches/search_form_field.php:13
-#: views/searches/search_form_field.php:142 views/temp_users/aside.php:61
+#: views/searches/search_form_field.php:146 views/temp_users/aside.php:61
 #: views/temp_users/aside.php:157 views/temp_users/select_form.php:5
 #: views/temp_users/select_form.php:44 views/trainer_actives/search_form.php:23
 #: views/user_not_selects/index.php:70
@@ -3945,7 +3951,7 @@ msgid "Attendance Add"
 msgstr "출석등록"
 
 #: views/employees/attendances.php:58 views/entrances/form.php:2
-#: views/home/attendances.php:66 views/layout/default.php:36
+#: views/home/attendances.php:66 views/layout/default.php:35
 #: views/layout/elements/home/nav.php:26 views/message_prepares/search.php:27
 #: views/messages/search.php:24 views/searches/search_form_default.php:131
 msgid "Attendance"
@@ -4465,7 +4471,9 @@ msgstr "지정수정요청 정보"
 #: views/error_reports/_form.php:73 views/error_reports/_form.php:77
 #: views/error_reports/_form.php:81 views/error_reports/_form.php:85
 #: views/error_reports/_form.php:89 views/error_reports/_form.php:93
-#: views/error_reports/index.php:32 views/message_excels/add.php:11
+#: views/error_reports/index.php:32 views/import_enrolls/form.php:8
+#: views/import_rent_sws/form.php:8 views/import_rents/form.php:8
+#: views/imports/form.php:8 views/message_excels/add.php:11
 #: views/order_block_excels/index.php:11
 msgid "File"
 msgstr "파일"
@@ -4829,6 +4837,12 @@ msgstr "건별 수수료"
 #: views/home/view.php:21
 msgid "User Detail Info"
 msgstr "상세정보"
+
+#: views/import_enrolls/form.php:20 views/import_rent_sws/form.php:20
+#: views/import_rents/form.php:20 views/imports/form.php:20
+#: views/messages/form.php:309 views/messages/form.php:311
+msgid "Send"
+msgstr "전송"
 
 #: views/jobs/aside.php:5
 msgid "Edit Job"
@@ -5596,10 +5610,6 @@ msgstr "준비된 문장으로 입력"
 msgid "Smart Phone Push"
 msgstr "스마트폰 푸시"
 
-#: views/messages/form.php:309 views/messages/form.php:311
-msgid "Send"
-msgstr "전송"
-
 #: views/messages/list.php:3
 msgid "Message List"
 msgstr "메시지 목록"
@@ -6202,16 +6212,20 @@ msgid "Birthday Search Type"
 msgstr "생일검색방법"
 
 #: views/searches/search_form_field.php:44
+msgid "Custom Search"
+msgstr "기간맞춤검색"
+
+#: views/searches/search_form_field.php:56
 msgid "Year Search"
 msgstr "생년검색"
 
-#: views/searches/search_form_field.php:56
+#: views/searches/search_form_field.php:68
 msgid "Month Search"
 msgstr "월별검색"
 
-#: views/searches/search_form_field.php:68
-msgid "Custom Search"
-msgstr "기간맞춤검색"
+#: views/searches/search_form_field.php:112
+msgid "Search Include Year"
+msgstr "연도포함 검색"
 
 #: views/send_end_alert_messages/form.php:16
 #: views/send_end_alert_messages/list.php:24

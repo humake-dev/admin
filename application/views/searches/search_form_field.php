@@ -37,10 +37,22 @@ $selected = $this->input->get('birthday_search_type');
   <label class="form-check-label">
     <input type="radio"
            name="birthday_search_type"
+           id="type_custom_period_search"
+           value="custom_period_search"
+           class="form-check-input"
+           <?= ($selected === null || $selected === 'custom_period_search') ? 'checked' : '' ?>>           
+    <?= _('Custom Search'); ?>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="radio"
+           name="birthday_search_type"
            id="type_birthday_year"
            value="birthday_year"
            class="form-check-input"
-           <?= ($selected === null || $selected === 'birthday_year') ? 'checked' : '' ?>>
+           <?= ($selected === 'birthday_year') ? 'checked' : '' ?>>
     <?= _('Year Search'); ?>
   </label>
 </div>
@@ -57,17 +69,7 @@ $selected = $this->input->get('birthday_search_type');
   </label>
 </div>
 
-<div class="form-check form-check-inline">
-  <label class="form-check-label">
-    <input type="radio"
-           name="birthday_search_type"
-           id="type_custom_period_search"
-           value="custom_period_search"
-           class="form-check-input"
-           <?= ($selected === 'custom_period_search') ? 'checked' : '' ?>>
-    <?= _('Custom Search'); ?>
-  </label>
-</div>
+
       
     </div>
   </div>
@@ -82,8 +84,9 @@ $selected = $this->input->get('birthday_search_type');
                 $value_end_birthday = set_value('end_birthday');
                 $value_birthday_year = set_value('birthday_year',$this->input->get('birthday_year'));
                 $value_birthday_month = set_value('birthday_month',$this->input->get('birthday_month'));
+                $value_include_year = set_value('include_year',$this->input->get('include_year'));
             ?>
-            <div id="birthday_custom_serach_input" class="input-group-prepend date" style="display:none">
+            <div id="birthday_custom_serach_input" class="input-group-prepend date">
             <?php 
                 echo form_input(array(
                 'name' => 'start_birthday',
@@ -106,10 +109,11 @@ $selected = $this->input->get('birthday_search_type');
             <div class="input-group-text">
                 <span class="material-icons">date_range</span>
             </div>
+            <label><input type="checkbox" name="include_year" value="1" <?php if(!empty($value_include_year)): ?>checked<?php endif ?>><?php echo _('Search Include Year') ?></label>
             </div>
 
 
-            <div id="birthday_year_serach_input">
+            <div id="birthday_year_serach_input" style="display:none">
              <?php 
                 echo form_input(array(
                 'name' => 'birthday_year',
