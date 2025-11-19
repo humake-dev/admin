@@ -239,7 +239,17 @@ class Search extends SL_Model
                 $order='DATE_FORMAT(u.birthday,"%m-%d")';
                 $desc = 'asc';
                 switch($this->search['birthday_search_type']) {
-                    case 'custom_period_search' :
+                    case 'birthday_month' :
+                        $birthday_month_obj = new DateTime($this->search['birthday_month']);                    
+                        $birthday_month=$birthday_month_obj->format('m');                                                
+                        $this->pdo->where('(DATE_FORMAT(u.birthday,"%m")="'.$birthday_month.'")');  
+                        break;
+                    case 'birthday_year' :
+                        $birthday_year_obj = new DateTime($this->search['birthday_year']);
+                        $birthday_year=$birthday_year_obj->format('Y');
+                        $this->pdo->where('(DATE_FORMAT(u.birthday,"%Y")="'.$birthday_year.'")');
+                        break;
+                    default :
                         if(!empty($this->search['start_birthday'])) {
                             $start_birthday_obj = new DateTime($this->search['start_birthday']);
                             $start_birthday=$start_birthday_obj->format('Y-m-d');                            
@@ -286,17 +296,7 @@ class Search extends SL_Model
                                 $this->pdo->where('DATE_FORMAT(u.birthday,"%Y-%m-%d")<="'.$end_birthday.'"');
                             }
                         }
-                        }
-                        break;
-                    case 'birthday_month' :
-                        $birthday_month_obj = new DateTime($this->search['birthday_month']);                    
-                        $birthday_month=$birthday_month_obj->format('m');                                                
-                        $this->pdo->where('DATE_FORMAT(u.birthday,"%m")="'.$birthday_month.'"');  
-                        break;
-                    default : 
-                        $birthday_year_obj = new DateTime($this->search['birthday_year']);
-                        $birthday_year=$birthday_year_obj->format('Y');
-                        $this->pdo->where('DATE_FORMAT(u.birthday,"%Y")="'.$birthday_year.'"');           
+                        }                                           
                 }
                 $search_birthday=true;
             } else {

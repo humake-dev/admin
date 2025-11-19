@@ -62,6 +62,18 @@ class Imports extends SL_Controller
         }
     }
 
+    protected function isValidDate2($dateString)
+    {
+    $timestamp = strtotime($dateString);
+    if ($timestamp === false) return false;
+
+    $year  = date('Y', $timestamp);
+    $month = date('m', $timestamp);
+    $day   = date('d', $timestamp);
+
+    return checkdate($month, $day, $year);
+    }
+
     protected function load_check($file)
     {
         $excelReader = PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($file);
@@ -92,7 +104,11 @@ class Imports extends SL_Controller
             
             $birthday = $worksheet->getCell('Y' . $row)->getFormattedValue();
             if(!empty($birthday)) {
-                $user['birthday']=$birthday;
+                if (isValidDate2($birthday)) {                
+                    $user['birthday']=$birthday;
+                } else {
+                    $user['birthday']=null;                    
+                }
             }
 
             $registration_date = $worksheet->getCell('AE' . $row)->getValue();
