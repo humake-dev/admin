@@ -104,7 +104,7 @@ class Imports extends SL_Controller
             
             $birthday = $worksheet->getCell('Y' . $row)->getFormattedValue();
             if(!empty($birthday)) {
-                if (isValidDate2($birthday)) {                
+                if ($this->isValidDate2($birthday)) {                
                     $user['birthday']=$birthday;
                 } else {
                     $user['birthday']=null;                    

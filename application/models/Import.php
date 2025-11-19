@@ -861,8 +861,8 @@ class Import extends SL_Model
         $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,created_at,updated_at) VALUES(?,?,?,?,?)';
         $sql_order_product = 'INSERT INTO order_products(order_id,product_id) VALUES(?,?)';
         $sql = 'INSERT INTO rents(order_id,facility_id,no, insert_quantity,start_datetime,end_datetime) VALUES(?,?,?,?,?,?)';
-        //$sql_account = 'INSERT INTO accounts(account_category_id,branch_id,user_id,transaction_date,cash,created_at) VALUES(' . ADD_RENT . ',?,?,?,?,NOW())';
-       // $sql_account_order = 'INSERT INTO account_orders(account_id,order_id) VALUES(?,?)';
+        $sql_account = 'INSERT INTO accounts(account_category_id,branch_id,user_id,transaction_date,created_at) VALUES(' . ADD_RENT . ',?,?,?,NOW())';
+        $sql_account_order = 'INSERT INTO account_orders(account_id,order_id) VALUES(?,?)';
 
         foreach ($rents as $rent) {
             $query = $this->pdo->query('SELECT * FROM users as u WHERE u.phone=? AND u.branch_id=?', array($rent['phone'], $this->session->userdata('branch_id')));
@@ -895,9 +895,9 @@ class Import extends SL_Model
                 $rent['end_date'] . ' 23:59:59',
             ));
 
-           // $this->pdo->query($sql_account, array($this->session->userdata('branch_id'), $rent['user_id'], $rent['transaction_date'], $rent['cash']));
-           // $account_id = $this->pdo->insert_id();
-           // $this->pdo->query($sql_account_order, array($account_id, $order_id));
+           $this->pdo->query($sql_account, array($this->session->userdata('branch_id'), $user_id, $rent['transaction_date']));
+            $account_id = $this->pdo->insert_id();
+           $this->pdo->query($sql_account_order, array($account_id, $order_id));
         }
         $this->pdo->trans_complete();
 
@@ -935,8 +935,8 @@ class Import extends SL_Model
         $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,created_at,updated_at) VALUES(?,?,?,?,?)';
         $sql_order_product = 'INSERT INTO order_products(order_id,product_id) VALUES(?,?)';
         $sql = 'INSERT INTO rent_sws(order_id,insert_quantity,start_date,end_date) VALUES(?,?,?,?)';
-        //$sql_account = 'INSERT INTO accounts(account_category_id,branch_id,user_id,transaction_date,cash,created_at) VALUES(' . ADD_RENT . ',?,?,?,?,NOW())';
-       // $sql_account_order = 'INSERT INTO account_orders(account_id,order_id) VALUES(?,?)';
+        $sql_account = 'INSERT INTO accounts(account_category_id,branch_id,user_id,transaction_date,created_at) VALUES(' . ADD_ORDER . ',?,?,?,NOW())';
+        $sql_account_order = 'INSERT INTO account_orders(account_id,order_id) VALUES(?,?)';
 
         foreach ($rent_sws as $rent_sw) {
             $query = $this->pdo->query('SELECT * FROM users as u WHERE u.phone=? AND u.branch_id=?', array($rent_sw['phone'], $this->session->userdata('branch_id')));
@@ -964,9 +964,9 @@ class Import extends SL_Model
                 $rent_sw['end_date']
             ));
 
-           // $this->pdo->query($sql_account, array($this->session->userdata('branch_id'), $rent['user_id'], $rent['transaction_date'], $rent['cash']));
-           // $account_id = $this->pdo->insert_id();
-           // $this->pdo->query($sql_account_order, array($account_id, $order_id));
+           $this->pdo->query($sql_account, array($this->session->userdata('branch_id'), $user_id, $rent_sw['transaction_date']));
+           $account_id = $this->pdo->insert_id();
+           $this->pdo->query($sql_account_order, array($account_id, $order_id));
         }
         $this->pdo->trans_complete();
 
