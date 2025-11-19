@@ -867,9 +867,8 @@ class Import extends SL_Model
         foreach ($rents as $rent) {
             $query = $this->pdo->query('SELECT * FROM users as u WHERE u.phone=? AND u.branch_id=?', array($rent['phone'], $this->session->userdata('branch_id')));
             $user_result=$query->result()[0];
-            $user_id=$user_result->id; 
-
-
+            $user_id=$user_result->id;
+            
             $this->pdo->query($sql_order, array(
                 $this->session->userdata('branch_id'),
                 $user_id,
@@ -908,6 +907,75 @@ class Import extends SL_Model
             return true;
         }
     }
+
+
+    public function insert_rent_sw($rent_sws)
+    {
+        if (!count($rent_sws)) {
+            return false;
+        }
+
+        $product_id=$this->input->post('product_id');
+
+
+        /*            
+        foreach ($rents as $index => $rent) {
+            foreach ($this->input->post('locker') as $ll) {
+                if ($ll['prename'] == $rent['locker']) {
+                    $rents[$index]['locker_id'] = $ll['id'];
+
+                    $facility_query = $this->pdo->query($sql_find_product, array($ll['id'], $this->session->userdata('branch_id')));
+                    $rents[$index]['product_id'] = $facility_query->result()[0]->product_id;
+                }
+            }
+        } */
+
+        $this->pdo->trans_start();
+
+        $sql_order = 'INSERT INTO orders(branch_id,user_id,transaction_date,created_at,updated_at) VALUES(?,?,?,?,?)';
+        $sql_order_product = 'INSERT INTO order_products(order_id,product_id) VALUES(?,?)';
+        $sql = 'INSERT INTO rent_sws(order_id,insert_quantity,start_date,end_date) VALUES(?,?,?,?)';
+        //$sql_account = 'INSERT INTO accounts(account_category_id,branch_id,user_id,transaction_date,cash,created_at) VALUES(' . ADD_RENT . ',?,?,?,?,NOW())';
+       // $sql_account_order = 'INSERT INTO account_orders(account_id,order_id) VALUES(?,?)';
+
+        foreach ($rent_sws as $rent_sw) {
+            $query = $this->pdo->query('SELECT * FROM users as u WHERE u.phone=? AND u.branch_id=?', array($rent_sw['phone'], $this->session->userdata('branch_id')));
+            $user_result=$query->result()[0];
+            $user_id=$user_result->id;
+            
+            $this->pdo->query($sql_order, array(
+                $this->session->userdata('branch_id'),
+                $user_id,
+                $rent_sw['transaction_date'],
+                $rent_sw['updated_at'],
+                $rent_sw['created_at']
+            ));
+            $order_id = $this->pdo->insert_id();
+
+            $this->pdo->query($sql_order_product, array(
+                $order_id,
+                $product_id
+            ));
+
+            $this->pdo->query($sql, array(
+                $order_id,
+                $rent_sw['insert_quantity'],
+                $rent_sw['start_date'],
+                $rent_sw['end_date']
+            ));
+
+           // $this->pdo->query($sql_account, array($this->session->userdata('branch_id'), $rent['user_id'], $rent['transaction_date'], $rent['cash']));
+           // $account_id = $this->pdo->insert_id();
+           // $this->pdo->query($sql_account_order, array($account_id, $order_id));
+        }
+        $this->pdo->trans_complete();
+
+        if ($this->pdo->trans_status() === false) {
+            return false;  // generate an error... or use the log_message() function to log your error
+        } else {
+            return true;
+        }
+    }    
 
     public function insert_enroll_content($enroll_contents)
     {

@@ -41,11 +41,11 @@ set :deploy_to, "/var/www/vhosts/dev"
 #
 # Global options
 # --------------
- set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-   forward_agent: true,
+#set :ssh_options, {
+#keys: %w("/home/deploy/.ssh/id_rsa"),
+#   forward_agent: true,
 #    auth_methods: %w(password)
- }
+#}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
