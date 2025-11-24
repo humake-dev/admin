@@ -2,8 +2,15 @@
 
 $param = '';
 
-if (count($this->input->get())) {
-    $param = '?'.http_build_query($this->input->get(), '', '&amp;');
+$get = $this->input->get();
+
+// 제거할 키 배열
+$exclude_keys = ['show_count'];
+
+$get = array_diff_key($get, array_flip($exclude_keys));
+
+if (count($get)) {
+    $param = '?'.http_build_query($get, '', '&amp;');
 }
 ?>
 <div class="row">

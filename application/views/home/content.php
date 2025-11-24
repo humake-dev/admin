@@ -65,6 +65,29 @@ $transfer_user = false;
     endif;
     ?>
 </div>
+<?php if(!empty($data['show_count'])): ?>
+<article class="card user_content_section<?php if ($transfer_user): ?> border-warning<?php endif; ?>">
+    <div class="card-header">
+        <h3><?php echo _('Enroll Count Info'); ?></h3>
+    </div>
+    <div class="card-body">
+        <?php if(empty($data['current_enroll']['total'])): ?>
+            <h2>유효한 회원권이 없습니다.</h2>
+        <?php else: ?>
+            <?php 
+                $end_dateObj=new DateTime($data['current_enroll']['list'][0]['end_date'],$search_data['timezone']);
+                $current_dayObj=new DateTime('now',$search_data['timezone']);
+                
+                $diffDays =  $end_dateObj->diff($current_dayObj)->days;
+            ?>
+            <h2><?php echo $data['content']['name'] ?>님은 종료일(<?php echo get_dt_format($end_dateObj->format('Y-m-d'), $search_data['timezone']) ?>)까지 <span style="font-size:40px"><?php echo $diffDays+1 ?></span>일 남았습니다.</h2>
+            <script>
+                const autoAttendance=true;
+            </script>
+        <?php endif ?>
+    </div>
+</article>
+<?php endif ?>
 <article class="card user_content_section<?php if ($transfer_user): ?> border-warning<?php endif; ?>">
     <div class="card-header">
         <h3><?php echo _('User Info'); ?></h3>

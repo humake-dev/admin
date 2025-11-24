@@ -621,12 +621,56 @@ class Home extends SL_Controller
             $this->return_data['data']['user_transfer_content'] = $user_transfer_content;
         }
 
+        if($this->input->get('show_count')) {
+            $this->return_data['data']['show_count']=true;
+
+            $temp_cookie_name='temp_'.$content['id'];
+
+            $value = $this->input->cookie($temp_cookie_name, true); // 두 번째 인자 true → XSS 필터 적용
+            if ($value === null) {
+                $this->load->model('Entrance');
+                $entrance_data=$this->set_entrance_insert_data(array('user_id'=>$content['id'],'date'=>$this->today));
+                $this->Entrance->insert($entrance_data);
+
+                $cookie = array(
+                    'name'   => $temp_cookie_name,
+                    'value'  => true,
+                    'expire' => 60,      // 초 단위 (1분)
+                    'secure' => false,   // HTTPS에서만 전송하려면 true
+                    'httponly' => true,  // JS 접근 방지
+                );
+
+                $this->input->set_cookie($cookie);
+            }
+
+            $this->load->model('Enroll');
+            $this->Enroll->user_id=$content['id'];
+            $this->Enroll->primary_only=true;
+            $this->Enroll->get_current_only=true;
+            $this->return_data['data']['current_enroll']=$this->Enroll->get_index();
+        }
+
         $this->return_data['data']['per_page'] = $this->per_page;
         $this->return_data['data']['page'] = $this->page;
         $this->return_data['data']['content'] = $content;
         $this->return_data['data']['user_content'] = $content;
 
         return $content;
+    }
+
+    private function set_entrance_insert_data($data)
+    {
+        $date = $data['date'];
+
+        if (empty($data['time'])) {
+            $time = date('H:i:s');
+        } else {
+            $time = $data['time'];
+        }
+
+        $data['in_time'] = $date . ' ' . $time;
+
+        return $data;
     }
 
     private function get_current_primary_order($id, $admin=false)

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: humake\n"
-"POT-Creation-Date: 2025-11-19 22:13+0900\n"
-"PO-Revision-Date: 2025-11-19 22:14+0900\n"
+"POT-Creation-Date: 2025-11-24 21:57+0900\n"
+"PO-Revision-Date: 2025-11-24 21:58+0900\n"
 "Last-Translator: \n"
 "Language-Team: sl\n"
 "Language: ko\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-KeywordsList: _;__\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -333,7 +333,7 @@ msgstr "회"
 #: controllers/Searches.php:322 controllers/Searches.php:337
 #: controllers/Temp_users.php:315 controllers/Trainer_actives.php:224
 #: controllers/Users.php:147 views/account_employees/view.php:51
-#: views/entrances/content.php:132 views/home/content.php:119
+#: views/entrances/content.php:132 views/home/content.php:142
 #: views/message_prepares/search.php:164 views/messages/search.php:130
 #: views/order_days/index.php:36 views/rents/aside.php:75
 #: views/rents/index.php:209 views/searches/list.php:117
@@ -809,7 +809,7 @@ msgstr "수정 실패"
 #: controllers/Users.php:158 helpers/sl_helper.php:105 views/admins/edit.php:10
 #: views/employees/content.php:40 views/employees/form.php:29
 #: views/employees/select.php:101 views/entrances/content.php:83
-#: views/home/content.php:86 views/layout/elements/home/profile_detail.php:83
+#: views/home/content.php:109 views/layout/elements/home/profile_detail.php:83
 #: views/temp_users/aside.php:185 views/temp_users/content.php:51
 #: views/temp_users/form.php:24 views/temp_users/select_form.php:15
 #: views/user_transfers/add.php:15 views/users/form.php:35
@@ -885,9 +885,9 @@ msgstr "상담수정기록 "
 #: views/entrances/content.php:134 views/error_reports/index.php:59
 #: views/exercise_categories/list.php:42 views/exercise_categories/view.php:11
 #: views/exercises/list.php:58 views/facility_breakdowns/delete.php:36
-#: views/home/content.php:107 views/home/content.php:122
-#: views/home/content.php:133 views/home/content.php:145
-#: views/home/content.php:156 views/home/content.php:167
+#: views/home/content.php:130 views/home/content.php:145
+#: views/home/content.php:156 views/home/content.php:168
+#: views/home/content.php:179 views/home/content.php:190
 #: views/home/counsels.php:52 views/products/list.php:44
 #: views/products/view.php:25 views/rents/aside.php:79 views/rents/aside.php:92
 #: views/rents/content.php:114 views/temp_users/content.php:69
@@ -1061,7 +1061,7 @@ msgstr "상담회원"
 #: views/counsels/search_form_field.php:7 views/employees/content.php:48
 #: views/employees/counsels.php:74 views/employees/form.php:90
 #: views/employees/users.php:67 views/entrances/content.php:87
-#: views/home/content.php:101 views/layout/elements/home/profile_detail.php:61
+#: views/home/content.php:124 views/layout/elements/home/profile_detail.php:61
 #: views/layout/elements/home/profile_detail.php:87
 #: views/layout/elements/home/search.php:18
 #: views/layout/elements/home/search.php:20
@@ -1306,7 +1306,7 @@ msgstr "날짜"
 #: helpers/sl_helper.php:102 views/account_employees/view.php:55
 #: views/employees/lessons.php:28 views/enrolls/disable.php:46
 #: views/entrances/content.php:70 views/entrances/form.php:12
-#: views/entrances/out.php:44 views/home/content.php:96
+#: views/entrances/out.php:44 views/home/content.php:119
 #: views/layout/elements/home/profile_detail.php:78
 #: views/layout/elements/home/search.php:20
 #: views/layout/elements/home/search.php:79
@@ -1379,7 +1379,7 @@ msgstr "성별"
 #: controllers/Searches.php:215 controllers/Temp_users.php:319
 #: controllers/Users.php:155 views/employees/content.php:147
 #: views/employees/form.php:191 views/entrances/content.php:61
-#: views/home/content.php:105 views/layout/elements/home/profile_detail.php:40
+#: views/home/content.php:128 views/layout/elements/home/profile_detail.php:40
 #: views/layout/elements/users/select_table.php:44
 #: views/layout/elements/users/select_table_not_counsel.php:44
 #: views/message_prepares/search.php:159 views/messages/search.php:125
@@ -1671,7 +1671,7 @@ msgid "Please, Insert Less Than or Equal To 200"
 msgstr "200개보다 작거나 같게 입력해주세요"
 
 #: controllers/Import_enrolls.php:134 controllers/Import_rent_sws.php:148
-#: controllers/Import_rents.php:128 controllers/Imports.php:122
+#: controllers/Import_rents.php:128 controllers/Imports.php:138
 #: controllers/Message_excels.php:111 controllers/Order_block_excels.php:177
 msgid "Excel"
 msgstr ""
@@ -2285,7 +2285,7 @@ msgstr "개월"
 #: controllers/Searches.php:261 controllers/Searches.php:268
 #: controllers/Temp_users.php:316 controllers/Users.php:148
 #: views/courses/edit.php:331 views/enrolls/content.php:125
-#: views/entrances/content.php:124 views/home/content.php:131
+#: views/entrances/content.php:124 views/home/content.php:154
 #: views/message_prepares/search.php:163 views/messages/search.php:129
 #: views/searches/list.php:112 views/temp_users/content.php:98
 #: views/temp_users/form.php:183 views/users/form.php:214
@@ -2298,14 +2298,14 @@ msgid "Remain Quantity"
 msgstr "잔여횟수"
 
 #: controllers/Searches.php:272 controllers/Users.php:151
-#: views/home/content.php:165 views/searches/list.php:106
+#: views/home/content.php:188 views/searches/list.php:106
 #: views/searches/search_form_field.php:7 views/user_additionals/view.php:5
 #: views/users/form.php:298
 msgid "Company"
 msgstr "회사"
 
 #: controllers/Searches.php:276 controllers/Users.php:150
-#: views/home/content.php:142 views/searches/list.php:103
+#: views/home/content.php:165 views/searches/list.php:103
 #: views/searches/search_form_field.php:7 views/user_additionals/view.php:9
 #: views/users/form.php:258
 msgid "Visit Route"
@@ -2445,7 +2445,7 @@ msgstr "%s님이 %s지점으로 이동되었습니다"
 msgid "Successfully Deleted Transfer Log"
 msgstr "이 회원을 다시 사용하도록 활성화 했습니다."
 
-#: controllers/Users.php:149 views/home/content.php:154
+#: controllers/Users.php:149 views/home/content.php:177
 #: views/users/form.php:280
 msgid "Job"
 msgstr "직업"
@@ -4426,7 +4426,7 @@ msgstr "회원입장"
 msgid "View User Entrance Analysis"
 msgstr "회원입장 분석"
 
-#: views/entrances/content.php:36 views/home/content.php:70
+#: views/entrances/content.php:36 views/home/content.php:93
 #: views/home/summary.php:2 views/layout/elements/home/profile_detail.php:13
 #: views/temp_users/summary.php:2 views/user_stops/add.php:50
 #: views/user_stops/edit.php:29 views/user_stops/edit_log.php:8
@@ -4651,17 +4651,21 @@ msgstr "생일날짜가 올바르지 않습니다"
 msgid "Change Branch"
 msgstr "지점 변경"
 
-#: views/home/content.php:73
+#: views/home/content.php:71
+msgid "Enroll Count Info"
+msgstr "수강일 종료 정보"
+
+#: views/home/content.php:96
 msgid "Ac Sync"
 msgstr "입출입기와 데이터 맞추기"
 
-#: views/home/content.php:77 views/home/messages.php:12
+#: views/home/content.php:100 views/home/messages.php:12
 #: views/layout/elements/home/nav.php:38 views/temp_users/messages.php:12
 #: views/temp_users/nav.php:13
 msgid "Message"
 msgstr "메세지"
 
-#: views/home/content.php:176 views/message_prepares/search.php:161
+#: views/home/content.php:199 views/message_prepares/search.php:161
 #: views/messages/search.php:127 views/temp_users/content.php:113
 msgid "Registed Date"
 msgstr "등록일"

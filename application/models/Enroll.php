@@ -289,16 +289,16 @@ class Enroll extends OrderExtend
                 }
             }
         }
-
-if(empty($this->center_id)) {
-    if (empty($this->branch_id)) {
-        $this->pdo->where(array('o.branch_id' => $this->session->userdata('branch_id'), 'o.enable' => 1));
-    } else {
-        $this->pdo->where(array('o.branch_id' => $this->branch_id, 'o.enable' => 1));
-    }
-} else {
-    $this->pdo->where(array('o.enable' => 1));
-}
+        
+        if(empty($this->center_id)) {
+            if (empty($this->branch_id)) {
+                $this->pdo->where(array('o.branch_id' => $this->session->userdata('branch_id'), 'o.enable' => 1));
+            } else {
+                $this->pdo->where(array('o.branch_id' => $this->branch_id, 'o.enable' => 1));
+            }
+        } else {
+            $this->pdo->where(array('o.enable' => 1));
+        }
         
         if (!empty($this->group_by_user)) {
             $this->pdo->group_by('o.user_id');
