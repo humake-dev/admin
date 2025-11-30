@@ -610,16 +610,6 @@ class Home extends SL_Controller
 
             $this->load->model('UserTransfer');
             $user_transfer_content = $this->UserTransfer->get_content_by_parent_id($content['id']);
-        }
-
-        if (!empty($additional_content)) {
-            $this->return_data['data']['additional_content'] = $additional_content;
-            $content = array_merge($additional_content, $content);
-        }
-
-        if (!empty($user_transfer_content['enable'])) {
-            $this->return_data['data']['user_transfer_content'] = $user_transfer_content;
-        }
 
         if($this->input->get('show_count')) {
             $this->return_data['data']['show_count']=true;
@@ -648,6 +638,17 @@ class Home extends SL_Controller
             $this->Enroll->primary_only=true;
             $this->Enroll->get_current_only=true;
             $this->return_data['data']['current_enroll']=$this->Enroll->get_index();
+        }
+
+        }
+
+        if (!empty($additional_content)) {
+            $this->return_data['data']['additional_content'] = $additional_content;
+            $content = array_merge($additional_content, $content);
+        }
+
+        if (!empty($user_transfer_content['enable'])) {
+            $this->return_data['data']['user_transfer_content'] = $user_transfer_content;
         }
 
         $this->return_data['data']['per_page'] = $this->per_page;
