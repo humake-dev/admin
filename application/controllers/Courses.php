@@ -46,7 +46,7 @@ class Courses extends Product_extend
             $this->{$this->model}->lesson_type=$this->input->get('lesson_type');
         }
 
-        $list = $this->{$this->model}->get_index($this->per_page, $this->page);
+        $list = $this->{$this->model}->get_index($this->per_page, $this->page, 'c.order_no', false);
         $this->return_data['data'] = $list;
 
         $this->get_admin_list();
@@ -208,5 +208,6 @@ class Courses extends Product_extend
         if (in_array($this->input->post('limit_cancel_type'), array('time', 'dayntime'))) {
             $this->form_validation->set_rules('limit_cancel_time', _('Limit Cancel Time'), 'callback_valid_time');
         }
+        $this->form_validation->set_rules('order_no', _('Order No'), 'required|integer');        
     }
 }

@@ -122,7 +122,7 @@ class Enrolls extends Order_extend
 
         $this->load->model('Course');
         $this->Course->status = 1;
-        $course = $this->Course->get_index(100, 0);
+        $course = $this->Course->get_index(100, 0,'c.order_no',false);
 
         $this->return_data['data']['course_category'] = $courseCategories;
         $this->return_data['data']['course'] = $course;

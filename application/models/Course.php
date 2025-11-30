@@ -6,7 +6,7 @@ require_once 'SL_Model.php';
 class Course extends SL_Model
 {
     protected $table = 'courses';
-    protected $accepted_attributes = array('product_id', 'status', 'trainer_id', 'quota', 'progress_time', 'user_reservation', 'lesson_type', 'lesson_quantity', 'lesson_period', 'lesson_period_unit', 'min_time', 'lesson_dayofweek');
+    protected $accepted_attributes = array('product_id', 'status', 'trainer_id', 'quota', 'progress_time', 'user_reservation', 'lesson_type', 'lesson_quantity', 'lesson_period', 'lesson_period_unit', 'min_time', 'lesson_dayofweek', 'order_no');
 
     protected function get_index_data($per_page = 1000, $page = 0, $order = null, $desc = null, $enable = true)
     {
@@ -35,7 +35,12 @@ class Course extends SL_Model
             $this->pdo->where(array('p.branch_id' => $this->branch_id, 'p.enable' => 1));
         }
 
-        $this->pdo->order_by('c.id', $desc);
+        if(empty($order)) {
+            $this->pdo->order_by('c.order_no', 'asc');
+        } else {
+            $this->pdo->order_by($order, $desc);
+        }
+
         $query = $this->pdo->get($this->table . ' as c', $per_page, $page);
 
         return $query->result_array();

@@ -375,8 +375,31 @@ echo form_input(array(
                 ?>
             <?php echo _('Primary Product'); ?>
             </label>
-              </div>
+              </div>        
                 </div>
+            <div class="col-12 col-lg-6 form-group">
+                <label for=""><?php echo _('Order No'); ?></label>
+      <?php
+  if (isset($data['content']['order_no'])) {
+      $value = $data['content']['order_no'];
+  } else {
+      if ($data['total']) {
+          $default = $data['total'] + 1;
+      } else {
+          $default = 1;
+      }
+      $value = set_value('order_no', $default);
+  }
+  echo form_input(array(
+          'type' => 'number',
+          'name' => 'order_no',
+          'id' => 'f_order',
+          'value' => $value,
+          'min' => '1',
+          'class' => 'form-control',
+  ));
+  ?>
+</div>
             </div>
               </article>
              
