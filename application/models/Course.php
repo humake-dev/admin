@@ -36,7 +36,7 @@ class Course extends SL_Model
         }
 
         if(empty($order)) {
-            $this->pdo->order_by('c.order_no', 'asc');
+            $this->pdo->order_by('c.id', 'asc');
         } else {
             $this->pdo->order_by($order, $desc);
         }
