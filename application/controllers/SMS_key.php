@@ -27,7 +27,7 @@ trait SMS_key
             return 2;
         }
         
-        if(in_array($this->session->userdata('branch_id'), array(8,10,11,12,13))) {
+        if(in_array($this->session->userdata('branch_id'), array(8,10,11,12,13,17))) {
             return 3;
         }
 
