@@ -416,8 +416,6 @@ function age($bY)
 
 function getPhotoPath($folderName, $branch_id, $fileName, $thumb = null)
 {
-    $ci = &get_instance();
-
     // 이미지가 없는 경우에는 기본 이미지를 출력
     if (empty($fileName) == true) {
         return '/assets/images/common/bg_photo_none.gif';
