@@ -5,6 +5,7 @@ gem 'capistrano-bundler'
 gem 'capistrano-rbenv', '~> 2.0'
 gem 'capistrano-php-fpm'
 gem 'capistrano-composer'
+gem "nokogiri", ">= 1.18.9"
 gem 'rake'
 
 group :test do
