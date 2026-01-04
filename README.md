@@ -47,6 +47,8 @@ CREATE DATABASE healthclub;
 USE healthclub;
 SOURCE schema.sql;
 ```
+---
+
 
 ## 🚀 Getting Started
 
