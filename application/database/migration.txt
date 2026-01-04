@@ -1,0 +1,2 @@
+ public 폴더에서
+ php index.php tools seed RolePermissionsSeeder

@@ -1,0 +1,9 @@
+INSERT INTO counsel_managers (counsel_id, admin_id)
+SELECT c.id, 1577
+FROM counsels as c
+LEFT JOIN counsel_managers as cm ON c.id = cm.counsel_id
+WHERE c.branch_id=5 AND cm.id IS NULL;      
+// 담당자 없는 테이블 에 입력 
+
+
+UPDATE (SELECT c.id FROM counsels as c INNER JOIN counsel_managers as ca ON ca.counsel_id=c.id where branch_id=7 ORDER BY RAND() LIMIT 634) as a INNER JOIN counsel_managers as cm on cm.counsel_id=a.id SET cm.admin_id=873
