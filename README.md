@@ -46,7 +46,7 @@ mysql -u root -p
 CREATE DATABASE healthclub;
 USE healthclub;
 SOURCE schema.sql;
-
+```
 
 ## 🚀 Getting Started
 
