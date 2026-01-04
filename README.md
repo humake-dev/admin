@@ -67,6 +67,11 @@ http://localhost:20020
 
 ---
 
+## 📌 Server Requirements
+
+[Rails](http://rubyonrails.org/) version 7 or newer is recommended.
+> Rails 7 이상 환경을 권장합니다.
+
 ## 🛠 Tech Stack
 
 - PHP
@@ -75,12 +80,10 @@ http://localhost:20020
 - Bootstrap (UI)
 - jQuery
 
+## 📜 License
 
-## 📌 Server Requirements
-
-PHP version 7 or newer is recommended.
-> PHP 7 이상 환경을 권장합니다.
-
+MIT License – completely free to use and modify
+> 개인·상업적 사용 모두 완전히 자유롭습니다.
 
 ## ✍️ Author
 
