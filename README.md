@@ -1,8 +1,9 @@
 # Health Club Management ERP (CodeIgniter 3)
 
-A health club management ERP system built with CodeIgniter 3.
+A web-based health club management ERP **admin system** built with CodeIgniter 3.
 
-This project is a web-based ERP application designed to manage daily operations of gyms and fitness centers, including member management, payments, attendance, and administrative workflows.
+This project focuses on the **administrative and back-office side** of gym and fitness center operations,
+including member management, payments, attendance, and staff administration.
 
 ---
 
@@ -28,6 +29,40 @@ By using this project, you can build your own **gym or fitness center management
 
 ---
 
+## 🗄 Database Setup (Required)
+
+This project **requires a database schema** before it can run.
+
+### 1️⃣ Get the schema file
+
+Download `schema.sql` from the following repository:
+
+👉 https://github.com/humake-dev/humake-dev
+
+### 2️⃣ Create database and import schema
+
+```bash
+mysql -u root -p
+CREATE DATABASE healthclub;
+USE healthclub;
+SOURCE schema.sql;
+
+
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/humake-dev/admin.git
+cd admin/public
+php -S localhost:20020
+then visit
+
+http://localhost:20020
+
+
+> 로컬 환경에서 바로 실행해볼 수 있습니다.
+
+---
+
 ## 🛠 Tech Stack
 
 - PHP
@@ -36,12 +71,14 @@ By using this project, you can build your own **gym or fitness center management
 - Bootstrap (UI)
 - jQuery
 
----
 
-## 🚀 Getting Started
+## 📌 Server Requirements
 
-```bash
-git clone https://github.com/humake-dev/admin.git
-cd admin/public
-php -S localhost:20020
-```
+PHP version 7 or newer is recommended.
+> PHP 7 이상 환경을 권장합니다.
+
+
+## ✍️ Author
+
+[Jedaeroweb](https://www.jedaeroweb.co.kr)
+> 작성자 = 제대로웹
