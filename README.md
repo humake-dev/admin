@@ -54,6 +54,8 @@ SOURCE schema.sql;
 git clone https://github.com/humake-dev/admin.git
 cd admin/public
 php -S localhost:20020
+```
+
 then visit
 
 http://localhost:20020
