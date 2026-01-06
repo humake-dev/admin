@@ -43,7 +43,7 @@ class SL_Controller extends CI_Controller
     protected $check_permission = true;
 
     // assets version
-    protected $assets_version = 6;
+    protected $assets_version = 7;
     protected $file_server_type = 'local';
 
     public function __construct()
