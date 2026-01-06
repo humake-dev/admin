@@ -210,7 +210,7 @@ aside.left-form {display:none}
 #rents aside .card .no {font-weight:bold;margin-top:0;padding-top:0}
 #rents aside .form-group {margin-bottom:0}
 #rents aside .form-group p {margin-top:5px}
-#rents .list {height:800px;overflow-y:scroll}
+#rents .list {height:100%;overflow-y:scroll}
 #rents .list article h3 a {display:block;text-decoration:none}
 #rents .rent-status dl {float:left}
 #rents .rent-status dt,#rents .rent-status dd {float:left;margin-right:1em;line-height:middle}

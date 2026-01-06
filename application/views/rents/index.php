@@ -132,49 +132,50 @@
 
 ?>
 <div id="rents" class="container">
-  <div class="row">
-    <nav class="col-12 sub_nav">
-    <ul class="nav nav-pills">
-      <?php foreach ($data['category']['list'] as $index => $value): ?>
-      <?php
-        if ($data['category']['current_id'] == $value['id']) {
-            $top_class = 'nav-link active';
-        } else {
-            $top_class = 'nav-link';
-        }
-      ?>
-      <li class="nav-item"><?php echo anchor('rents?facility_id='.$value['id'], $value['title'], array('class' => $top_class)); ?></li>
-      <?php endforeach; ?>
-    </ul>
-    </nav>
-    <div class="col-12">
     <div class="row">
-      <div class="col-12">
-      <div class="card">
-        <div class="card-body rent-status">
-          <div class="row">
-          <div class="col-12 col-lg-6">
-            <dl>
-              <dt class="btn btn-secondary btn-sm">
-                <?php echo rent_order_anchor(_('Status Await'), $this->input->get('facility_id'), 'await'); ?>
-              </dt>
-              <dd><?php echo number_format($wait_count); ?></dd>
-              <dt class="btn btn-sm btn-success"><?php echo rent_order_anchor(_('Status Use'), $this->input->get('facility_id'), 'use'); ?></dt>
-              <dd><?php echo number_format($use_count); ?></dd>
-              <dt class="btn btn-sm btn-warning"><?php echo rent_order_anchor(_('Status Expire'), $this->input->get('facility_id'), 'expire'); ?></dt>
-              <dd><?php echo number_format($expire_count); ?></dd>
-              <dt class="btn btn-sm btn-danger"><?php echo rent_order_anchor(_('Status Breakdown'), $this->input->get('facility_id'), 'breakdown'); ?></dt>
-              <dd><?php echo number_format($break_count); ?></dd>
-            </dl>
-            <input type="hidden" id="facility_id" name="id" value="<?php echo $data['category']['content']['id']; ?>" />
-          </div>
-          <?php include __DIR__.DIRECTORY_SEPARATOR.'default_button.php'; ?>
-
-    </div>
-    </div>
-    </div>
-    </div>
-    <?php include __DIR__.DIRECTORY_SEPARATOR.'aside.php'; ?>
+        <nav class="col-12 sub_nav">
+            <ul class="nav nav-pills">
+                <?php foreach ($data['category']['list'] as $index => $value): ?>
+                <?php
+                    if ($data['category']['current_id'] == $value['id']) {
+                        $top_class = 'nav-link active';
+                    } else {
+                        $top_class = 'nav-link';
+                    }
+                ?>
+                <li class="nav-item"><?php echo anchor('rents?facility_id='.$value['id'], $value['title'], array('class' => $top_class)); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </nav>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body rent-status">
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <dl>
+                                        <dt class="btn btn-secondary btn-sm">
+                                        <?php echo rent_order_anchor(_('Status Await'), $this->input->get('facility_id'), 'await'); ?>
+                                        </dt>
+                                        <dd><?php echo number_format($wait_count); ?></dd>
+                                        <dt class="btn btn-sm btn-success"><?php echo rent_order_anchor(_('Status Use'), $this->input->get('facility_id'), 'use'); ?></dt>
+                                        <dd><?php echo number_format($use_count); ?></dd>
+                                        <dt class="btn btn-sm btn-warning"><?php echo rent_order_anchor(_('Status Expire'), $this->input->get('facility_id'), 'expire'); ?></dt>
+                                        <dd><?php echo number_format($expire_count); ?></dd>
+                                        <dt class="btn btn-sm btn-danger"><?php echo rent_order_anchor(_('Status Breakdown'), $this->input->get('facility_id'), 'breakdown'); ?></dt>
+                                        <dd><?php echo number_format($break_count); ?></dd>
+                                    </dl>
+                                    <input type="hidden" id="facility_id" name="id" value="<?php echo $data['category']['content']['id']; ?>" />
+                                </div>
+                                <?php include __DIR__.DIRECTORY_SEPARATOR.'default_button.php'; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php include __DIR__.DIRECTORY_SEPARATOR.'aside.php'; ?>
     <div class="col-12 col-xxl-9">
 
     <div class="row list">

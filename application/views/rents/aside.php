@@ -299,5 +299,4 @@ endif;
     <?php endforeach; ?>
     <?php endif; ?>
     </div>
-  </article>
 </aside>
