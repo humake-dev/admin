@@ -1,6 +1,6 @@
-# Health Club Management ERP (CodeIgniter 3)
+# Health Club Management(CRM) (CodeIgniter 3)
 
-A web-based health club management ERP **admin system** built with CodeIgniter 3.
+A web-based health club management(CRM) **admin system** built with CodeIgniter 3.
 
 This project focuses on the **administrative and back-office side** of gym and fitness center operations,
 including member management, payments, attendance, and staff administration.
