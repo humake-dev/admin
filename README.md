@@ -1,4 +1,4 @@
-# Health Club Management(CRM) (CodeIgniter 3)
+# Health Club Management System(CRM) (CodeIgniter 3)
 
 A web-based health club management(CRM) **admin system** built with CodeIgniter 3.
 
@@ -69,8 +69,8 @@ http://localhost:20020
 
 ## 📌 Server Requirements
 
-[Rails](http://rubyonrails.org/) version 7 or newer is recommended.
-> Rails 7 이상 환경을 권장합니다.
+PHP version 7 or newer is recommended.
+> PHP 7 이상 환경을 권장합니다.
 
 ## 🛠 Tech Stack
 
