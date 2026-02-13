@@ -1,4 +1,4 @@
-# Health Club Management System(CRM) (CodeIgniter 3)
+# Health Club Management System(CRM)
 
 A web-based health club management(CRM) **admin system** built with CodeIgniter 3.
 
