@@ -59,3 +59,4 @@ set :deploy_to, "/var/www/vhosts/dev"
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+after 'deploy:published', 'deploy:copy_font_face'

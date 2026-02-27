@@ -507,6 +507,7 @@ class Home extends SL_Controller
         $this->Rent->display_only = true;
 
         $this->Rent->user_id = $id;
+        $this->Rent->get_current_only = true;
         $rents = $this->Rent->get_index(1, 0, 'start_date');
 
         if ($rents['total']) {

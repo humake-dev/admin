@@ -6,7 +6,7 @@
             <img id="profile_photo" src="/assets/images/common/bg_photo_none.gif" width="100%" height="100%">
         <?php else: ?>
             <a href="<?php echo getPhotoPath('employee', $data['content']['branch_id'], $data['content']['picture_url']); ?>" class="simple_image">
-            <img id="profile_photo" src="<?php echo getPhotoPath('employee', $data['content']['branch_id'], $data['content']['picture_url'], 'large'); ?>" width="100%" height="100%">
+            <img id="profile_photo" src="<?php echo getPhotoPath('employee', $data['content']['branch_id'], $data['content']['picture_url'], 'medium'); ?>" width="100%" height="100%">
             </a>
         <?php endif ?>
     </div>

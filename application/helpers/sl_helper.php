@@ -433,13 +433,25 @@ function getPhotoPath($folderName, $branch_id, $fileName, $thumb = null)
 
     switch ($type) {
         case 'AzureRM':
-            $img_path = 'https://' . $_ENV['AZURE_STORAGE_ACCOUNT_NAME'] . '.blob.core.windows.net/' . $_ENV['FOG_DIRECTORY'] . '/' . $folderName . '/' . $branch_id . '/' . $fileName;
+            //if (empty($thumb)) {
+                $img_path = 'https://' . $_ENV['AZURE_STORAGE_ACCOUNT_NAME'] . '.blob.core.windows.net/' . $_ENV['FOG_DIRECTORY'] . '/' . $folderName . '/' . $branch_id . '/' . $fileName;
+            //} else {
+            //    $img_path = '/phpThumb.php?src='.urlencode('https://' . $_ENV['AZURE_STORAGE_ACCOUNT_NAME'] . '.blob.core.windows.net/' . $_ENV['FOG_DIRECTORY'] . '/' . $folderName . '/' . $branch_id . '/' . rawurlencode($fileName)).'&w=200&h=200';
+           // }
             break;
         case 'AWS':
-            $img_path = 'https://s3-ap-northeast-2.amazonaws.com/' . $_ENV['FOG_DIRECTORY'] . '/' . $folderName . '/' . $branch_id . '/' . $fileName;
+            //if (empty($thumb)) {
+                $img_path = 'https://s3-ap-northeast-2.amazonaws.com/' . $_ENV['FOG_DIRECTORY'] . '/' . $folderName . '/' . $branch_id . '/' . $fileName;
+            //} else {
+            //    $img_path = '/phpThumb.php?src='.urlencode('https://s3-ap-northeast-2.amazonaws.com/' . $_ENV['FOG_DIRECTORY'] . '/' . $folderName . '/' . $branch_id . '/' . rawurlencode($fileName)).'&w=200&h=200&&zc=2';
+           // }
             break;
         default:
-            $img_path = '/files/' . $folderName . '/' . $branch_id . '/' . $fileName;
+            //if (empty($thumb)) {
+                $img_path = '/files/' . $folderName . '/' . $branch_id . '/' . $fileName;
+            //} else {
+             //   $img_path = '/phpThumb.php?src=/files/' . $folderName . '/' . $branch_id . '/' . $fileName.'&w=200&h=200&&zc=1';
+            //}
     }
 
     return $img_path;

@@ -59,3 +59,6 @@ set :deploy_to, "/var/www/html"
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+after 'deploy:finishing', 'deploy:make_minify'
+after 'deploy:finishing', 'deploy:asset_sync'
+after 'deploy:finishing', 'php_fpm:reload'

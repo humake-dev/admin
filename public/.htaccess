@@ -26,8 +26,15 @@ FileETag none
 </IfModule>
 
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+RewriteEngine On
+
+# phpThumb 직접 접근 허용
+RewriteRule ^phpThumb/ - [L]
+
+# 또는 단일 파일이면
+# RewriteRule ^phpThumb\.php$ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
 </IfModule>

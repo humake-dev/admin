@@ -11,6 +11,7 @@ application/logs/*
 public/files
 public/assets/stylesheets/font-face.css
 public/node_modules
+public/phpThumb.php
 application/config/config.php
 application/config/database.php
 application/config/constants.php
@@ -19,6 +20,7 @@ application/config/ftp.php
 application/config/layout.php
 application/config/deploy.rb
 application/config/humake-fitness.json
+libraries/PHPThumb/*
 
 composer.lock
 #Gemfile.lock

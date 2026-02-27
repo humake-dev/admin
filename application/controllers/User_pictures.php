@@ -8,7 +8,7 @@ class User_pictures extends SL_photo
     protected $model = 'UserPicture';
     protected $permission_controller = 'users';
     protected $directory = 'user';
-    protected $thumb_array = array('large_thumb' => array('width' => 1080, 'height' => 340), 'medium_thumb' => array('width' => 540, 'height' => 175), 'small_thumb' => array('width' => 275, 'height' => 88));
+    protected $thumb_array = array('medium_thumb' => array('width' => 200, 'height' => 200), 'small_thumb' => array('width' => 100, 'height' => 100));
 
     public function update_photo($id, $redirect = true)
     {
