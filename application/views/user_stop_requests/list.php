@@ -37,7 +37,7 @@
                 <tbody>
                 <?php if (empty($data['total'])): ?>
                     <tr>
-                        <td colspan="<?php if(empty($this->session->userdata('center_id'))): ?><?php if ($this->Acl->has_permission('users', 'delete')): ?>5<?php else: ?>4<?php endif ?><?php else: ?>6<?php endif ?>" class="text-center"><?php echo _('No Data'); ?></td>
+                        <td colspan="<?php if(empty($this->session->userdata('center_id'))): ?><?php if ($this->Acl->has_permission('users', 'delete')): ?>7<?php else: ?>6<?php endif ?><?php else: ?>7<?php endif ?>" class="text-center"><?php echo _('No Data'); ?></td>
                     </tr>
                 <?php else: ?>
                     <?php foreach ($data['list'] as $index => $value):

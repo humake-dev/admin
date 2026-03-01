@@ -83,6 +83,8 @@ class UserStopRequest extends SL_Model
         
         if(empty($this->session->userdata('center_id'))) {
             $this->pdo->where(array('u.branch_id' => $this->session->userdata('branch_id')));
+        } else {
+            $this->pdo->where(array('b.center_id' => $this->session->userdata('center_id')));
         }
 
         $this->pdo->where(array('usr.enable' => 1));
@@ -106,6 +108,8 @@ class UserStopRequest extends SL_Model
 
         if(empty($this->session->userdata('center_id'))) {
             $this->pdo->where(array('u.branch_id' => $this->session->userdata('branch_id')));
+        } else {
+            $this->pdo->where(array('b.center_id' => $this->session->userdata('center_id')));
         }
 
         $this->pdo->where(array('usr.enable' => 1));
