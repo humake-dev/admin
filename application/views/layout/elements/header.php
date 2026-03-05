@@ -1,3 +1,24 @@
+<?php
+
+    $total_message_count = 0;
+    $stop_request_count='';
+    $counse_request_count = '';
+
+    if(!empty($common_data['stop_request_count'])){
+        $total_message_count += $common_data['stop_request_count'];
+        $stop_request_count = '<span class="badge badge-pill badge-danger">' . $common_data['stop_request_count'] . '</span>';
+    }
+
+    if(!empty($common_data['counsel_request_count'])){
+        $total_message_count += $common_data['counsel_request_count'];
+        $counsel_request_count = '<span class="badge badge-pill badge-danger">' . $common_data['counsel_request_count'] . '</span>';
+    }
+    
+    if(!empty($total_message_count)){
+        $total_message_count = '<span class="badge badge-pill badge-danger">' . $total_message_count . '</span>';
+    }
+
+?>
 <!-- header -->
 <header>
     <div id="header" class="header navbar navbar-default navbar-fixed-top">
@@ -238,7 +259,7 @@
                 <?php if ($this->Acl->has_permission('employees') or $this->Acl->has_permission('branches') or $this->Acl->has_permission('notices') or $this->Acl->has_permission('product_categories') or $this->Acl->has_permission('products')): ?>
                     <li class="nav-item has-sub dropdown<?php if (in_array($this->router->fetch_class(), ['employees', 'notices', 'error_reports', 'product_categories', 'products', 'branches', 'centers', 'permissions', 'roles', 'role_permissions', 'admin_permissions', 'jobs', 'visit_routes', 'order_edit_logs', 'counsel_edit_logs', 'enroll_pts'])): ?> active<?php endif; ?>">
                         <?php if ($this->Acl->has_permission('employees')): ?>
-                            <?php echo anchor('employees', '<i class="material-icons">build</i><span>' . _('Admin Menu') . '</span>', ['title' => _('Admin Menu Description'), 'class' => 'nav-link dropdown-toggle']); ?>
+                            <?php echo anchor('employees', '<i class="material-icons">build</i><span>' . _('Admin Menu') . '</span>' . $total_message_count, ['title' => _('Admin Menu Description'), 'class' => 'nav-link dropdown-toggle']); ?>
                         <?php else: ?>
                             <?php if ($this->Acl->has_permission('notices')): ?>
                                 <?php echo anchor('notices', '<i class="material-icons">view_headline</i><span>' . _('Notice Manage') . '</span>', ['title' => _('Notice Manage Description'), 'class' => 'nav-link dropdown-toggle']); ?>
@@ -257,8 +278,8 @@
                             <li<?php if ($this->router->fetch_class() == 'error_reports'): ?> class="active"<?php endif; ?>><?php echo anchor('error-reports', '<i class="material-icons">view_headline</i><span>' . _('Error Report') . '</span>', ['title' => _('Error Report Description'), 'class' => 'nav-link']); ?></li>
 
 
-                            <li<?php if ($this->router->fetch_class() == 'counsel_requests'): ?> class="active"<?php endif; ?>><?php echo anchor('counsel_requests' , '<i class="material-icons">call_split</i><span>' . _('Counsel Request') . '</span>', ['title' => _('Counsel Request Description'), 'class' => 'nav-link']); ?></li>
-                            <li<?php if ($this->router->fetch_class() == 'user_stop_requests'): ?> class="active"<?php endif; ?>><?php echo anchor('user_stop_requests' , '<i class="material-icons">call_split</i><span>' . _('User Stop Request') . '</span>', ['title' => _('User Stop Request Description'), 'class' => 'nav-link']); ?></li>
+                            <li<?php if ($this->router->fetch_class() == 'counsel_requests'): ?> class="active"<?php endif; ?>><?php echo anchor('counsel_requests' , '<i class="material-icons">call_split</i><span>' . _('Counsel Request') . '</span>'.$counsel_request_count, ['title' => _('Counsel Request Description'), 'class' => 'nav-link']); ?></li>
+                            <li<?php if ($this->router->fetch_class() == 'user_stop_requests'): ?> class="active"<?php endif; ?>><?php echo anchor('user_stop_requests' , '<i class="material-icons">call_split</i><span>' . _('User Stop Request') . '</span>'.$stop_request_count, ['title' => _('User Stop Request Description'), 'class' => 'nav-link']); ?></li>
 
                             <?php if ($this->Acl->has_permission('products') or $this->Acl->has_permission('product_categories')): ?>
                                 <?php if ($this->Acl->has_permission('products')): ?>

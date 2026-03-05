@@ -7067,9 +7067,6 @@ body .bootstrap-datetimepicker-widget table td {
 .top-menu .nav > li > a .label {
     margin-left: 5px;
 }
-.top-menu .nav > li > a .badge {
-    background: #1b1f24;
-}
 .top-menu .nav > li > a .icon-img {
 	float: left;
 	margin: 0 10px 0 0;
@@ -7086,11 +7083,6 @@ body .bootstrap-datetimepicker-widget table td {
 .top-menu .nav > li > a .badge.pull-right,
 .top-menu .nav > li > a .label.pull-right {
     margin-top: 4px;
-}
-.top-menu .nav > li.active > a .label.label-theme,
-.top-menu .nav > li.active > a .badge {
-    background: url(../img/transparent/black-0.4.png);
-    background: rgba(0,0,0,0.4);
 }
 .top-menu .nav > li > a i {
     float: left;

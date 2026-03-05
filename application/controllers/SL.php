@@ -139,6 +139,17 @@ class SL_Controller extends CI_Controller
                 }
         }
 
+
+        if($this->Acl->has_permission('employees')) {
+            $this->load->model('CounselRequest');
+            $this->CounselRequest->search=array('complete'=>0);
+            $common_data['counsel_request_count'] = $this->CounselRequest->get_count();
+        
+            $this->load->model('UserStopRequest');
+            $this->UserStopRequest->search=array('complete'=>0);
+            $common_data['stop_request_count'] = $this->UserStopRequest->get_count();
+        }
+
         $common_data['branch_list'] = $branch_list;
 
         if (empty($this->default_view_directory)) {
