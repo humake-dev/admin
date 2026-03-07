@@ -36,33 +36,42 @@
                                                 <?php if ($this->session->userdata('branch_id')): ?>
                                                     <?php if ($this->Acl->has_permission('enrolls', 'write')): ?>
                                                         <li><?php echo anchor('enrolls/add?user_id=' . $data['content']['id'], _('Add Enroll'), array('id' => 'user_enroll_', 'class' => 'btn btn-primary')); ?></li>
+                                                    <?php endif; ?>                                                        
                                                         <?php if (isset($data['enroll']['content'])): ?>
                                                             <?php if ($data['enroll']['content']['stopped']): ?>
+                                                            <?php if ($this->Acl->has_permission('enrolls', 'write')): ?>                                                                
                                                                 <li><?php echo anchor('#', _('Edit'), array('id' => 'user_enroll_edit', 'class' => 'btn btn-secondary disabled')); ?></li>
-                                                                <?php if ($this->session->userdata('role_id') < 4): ?>
+                                                                <?php if ($this->Acl->has_permission('enroll_transfers', 'manage')): ?>
                                                                     <li><?php echo anchor('#', _('Transfer'), array('id' => 'user_enroll_transfer', 'class' => 'btn btn-secondary disabled')); ?></li>
                                                                 <?php endif; ?>
+                                                                <?php endif; ?>                                                                
                                                             <?php else: ?>
+                                                                <?php if ($this->Acl->has_permission('enrolls', 'write')): ?>                                                                  
                                                                 <li><?php echo anchor('enrolls/edit/' . $data['enroll']['content']['id'], _('Edit'), array('id' => 'user_enroll_edit', 'class' => 'btn btn-secondary')); ?></li>
-                                                                <?php if ($this->session->userdata('role_id') < 4): ?>
+                                                                <?php endif; ?> 
+                                                                <?php if ($this->Acl->has_permission('enroll_transfers', 'manage')): ?>
                                                                     <li><?php echo anchor('enrolls/transfer/' . $data['enroll']['content']['id'], _('Transfer'), array('id' => 'user_enroll_transfer', 'class' => 'btn btn-secondary')); ?></li>
                                                                 <?php endif; ?>
                                                             <?php endif; ?>
                                                             <?php if (empty($data['enroll']['content']['ended'])): ?>
+                                                                <?php if ($this->Acl->has_permission('enrolls', 'write')): ?>                                                                
                                                                 <li><?php echo anchor('enrolls/end/' . $data['enroll']['content']['id'], _('End Order'), array('id' => 'user_enroll_end', 'class' => 'btn btn-danger btn-modal')); ?></li>
                                                                 <?php if ($this->session->userdata('role_id') < 3): ?>
                                                                     <li><?php echo anchor('enrolls/delete/' . $data['enroll']['content']['id'], _('Delete'), array('id' => 'user_enroll_delete', 'class' => 'btn btn-danger btn-modal', 'style' => 'display:none')); ?></li>
                                                                     <li><?php echo anchor('enrolls/recover/' . $data['enroll']['content']['id'], _('Recover'), array('id' => 'user_enroll_recover', 'class' => 'btn btn-success btn-modal', 'style' => 'display:none')); ?></li>
+                                                                    <?php endif; ?>                                                                    
                                                                 <?php endif; ?>
                                                             <?php else: ?>
+                                                                <?php if ($this->Acl->has_permission('enrolls', 'write')): ?> 
                                                                 <li><?php echo anchor('enrolls/end/' . $data['enroll']['content']['id'], _('End Order'), array('id' => 'user_enroll_end', 'class' => 'btn btn-danger btn-modal', 'style' => 'display:none')); ?></li>
                                                                 <?php if ($this->session->userdata('role_id') < 3): ?>
                                                                     <li><?php echo anchor('enrolls/delete/' . $data['enroll']['content']['id'], _('Delete'), array('id' => 'user_enroll_delete', 'class' => 'btn btn-danger btn-modal')); ?></li>
                                                                     <li><?php echo anchor('enrolls/recover/' . $data['enroll']['content']['id'], _('Recover'), array('id' => 'user_enroll_recover', 'class' => 'btn btn-success btn-modal')); ?></li>
                                                                 <?php endif; ?>
+                                                                <?php endif; ?>                                                                
                                                             <?php endif; ?>
 
-                                                        <?php endif; ?>
+
                                                     <?php endif; ?>
                                                 <?php endif; ?>
                                                 <li class="float-right" style="margin-right:0">

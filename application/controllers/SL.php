@@ -146,7 +146,7 @@ class SL_Controller extends CI_Controller
             $common_data['counsel_request_count'] = $this->CounselRequest->get_count();
         
             $this->load->model('UserStopRequest');
-            $this->UserStopRequest->search=array('complete'=>0);
+            $this->UserStopRequest->start_date=$this->today;
             $common_data['stop_request_count'] = $this->UserStopRequest->get_count();
         }
 

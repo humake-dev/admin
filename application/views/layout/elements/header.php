@@ -5,8 +5,8 @@
     $counse_request_count = '';
 
     if(!empty($common_data['stop_request_count'])){
-        $total_message_count += $common_data['stop_request_count'];
-        $stop_request_count = '<span class="badge badge-pill badge-danger">' . $common_data['stop_request_count'] . '</span>';
+        // $total_message_count += $common_data['stop_request_count'];
+        $stop_request_count = '<span class="badge badge-pill badge-danger">신규요청</span>';
     }
 
     if(!empty($common_data['counsel_request_count'])){
@@ -14,7 +14,11 @@
         $counsel_request_count = '<span class="badge badge-pill badge-danger">' . $common_data['counsel_request_count'] . '</span>';
     }
     
-    if(!empty($total_message_count)){
+    if(empty($total_message_count)){
+        if(!empty($stop_request_count) or !empty($counsel_request_count)){
+            $total_message_count = '<span class="badge badge-pill badge-danger">신규요청</span>';
+        }
+    } else {
         $total_message_count = '<span class="badge badge-pill badge-danger">' . $total_message_count . '</span>';
     }
 
