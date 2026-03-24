@@ -10,23 +10,13 @@ class Order_transfers extends SL_Controller
 
     protected $parent_model = 'Order';
     protected $model = 'OrderTransfer';
-    protected $permission_controller = 'orders';
+    protected $permission_controller = 'order_transfers';
     protected $script = 'order-transfers/add.js';
     protected $default_view_directory = 'order_transfers';
     protected $default_view_file = 'add.php';
     protected $schedule = false;
     protected $type = 'order';
     protected $transfer_id = TRANSFER_ORDER;
-
-    protected function permission_check()
-    {
-        parent::permission_check();
-
-        if ($this->session->userdata('role_id') > 3) {
-            show_error('You do not have access to this section');
-            exit;
-        }
-    }
 
     protected function set_add_form_data()
     {

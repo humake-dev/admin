@@ -7,7 +7,7 @@ class Enroll_transfers extends Order_transfers
 {
     protected $parent_model = 'Enroll';
     protected $model = 'OrderTransfer';
-    protected $permission_controller = 'enrolls';
+    protected $permission_controller = 'enroll_transfers';
     protected $type = 'enroll';
     protected $default_view_directory = 'enroll_transfers';
     protected $transfer_id = TRANSFER_ENROLL;
