@@ -3,7 +3,7 @@
 ?>
 <div class="card">
   <div class="card-body">
-    <input type="text" name="course_id" class="form-control" value="1507" />
+    <input type="text" name="course_id" class="form-control" value="1493" />
   <div class="form-group">
     <label for="m_picture"><?php echo _('File'); ?></label>
     <?php

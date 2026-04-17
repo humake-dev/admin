@@ -6,11 +6,11 @@ try {
     $log_file = basename(__FILE__, '.php').'.log';
     include __DIR__.DIRECTORY_SEPARATOR.'common_head.php';    
 
-    $branch_id=10;
-    $course_id= 1474;
-    $reference_date='2025-06-01';
-    $plus_date=14;
-    $content='인테리어 리모델링 및 샤워장 공사로 인한 기간추가';
+    $branch_id=13;
+    $course_id= 1494;
+    $reference_date='2026-04-16';
+    $plus_date=10;
+    $content='2016년 4월 16일 기준 회원 추가 10일';
     
 
     $stmt_count = $pdo->prepare('SELECT COUNT(*) AS count FROM users AS u WHERE u.enable=1 AND branch_id=:branch_id');
@@ -144,7 +144,7 @@ try {
             $insert_count++;
         }
 
-        $stmt_count_rent->bindParam(':user_id', $value['id'], PDO::PARAM_INT);
+/*        $stmt_count_rent->bindParam(':user_id', $value['id'], PDO::PARAM_INT);
         $stmt_count_rent->execute();
         $count_rent = $stmt_count_rent->fetchColumn();
 
@@ -203,9 +203,9 @@ try {
 
             sl_log($log, 'rent_id :'. $rent_id.' inserted');
             $insert_count++;
-        }
+        } */
 
-        $stmt_count_rsw->bindParam(':user_id', $value['id'], PDO::PARAM_INT);
+    /*    $stmt_count_rsw->bindParam(':user_id', $value['id'], PDO::PARAM_INT);
         $stmt_count_rsw->execute();
         $count_rsw = $stmt_count_rsw->fetchColumn();
 
@@ -257,7 +257,7 @@ try {
 
             sl_log($log, 'rsw :'. $rsw_id.' inserted');
             $insert_count++;
-        }
+        } */
 
         if (!empty($count_enroll) or !empty($count_rent) or !empty($count_rsw)) {
             $stmt_memo_insert->bindParam(':user_id', $value['id'], PDO::PARAM_INT);
