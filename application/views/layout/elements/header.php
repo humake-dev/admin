@@ -2,7 +2,7 @@
 
     $total_message_count = 0;
     $stop_request_count='';
-    $counse_request_count = '';
+    $counsel_request_count = '';
 
     if(!empty($common_data['stop_request_count'])){
         // $total_message_count += $common_data['stop_request_count'];
